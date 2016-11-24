@@ -81,7 +81,7 @@ set fileformat=unix "防止window下的doc文件出现^M报错
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
 "set guifont=yaHei_consolas_hybrid:h13
-set guifont=yaHei_consolas_hybrid:h11
+set guifont=yaHei_consolas_hybrid:h12
 set backspace=indent,eol,start
 syntax on
 color molokai
@@ -106,8 +106,8 @@ endif
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "let g:UltiSnipsEditSplit="vertical"
 
-runtime macros/matchit.vim  "%匹配html标签
-
+"%匹配html标签
+runtime macros/matchit.vim  
 "neocomplete 代码补全设置(cache omnifunc)
 let g:neocomplcache_enable_at_startup = 1 
 
@@ -125,3 +125,12 @@ if has('conceal')
 endif
 let g:neosnippet#enable_snipmate_compatibility = 1 " Enable snipMate compatibility feature.
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets' " Tell Neosnippet about the other snippets
+
+"windows 透明设置
+" if executable("vimtweak.dll") 
+" 	autocmd guienter * call libcallnr("vimtweak","SetAlpha",226) 
+" endif 
+map <leader>W :call libcallnr("vimtweak.dll","SetAlpha",255)<cr>
+map <leader>w :call libcallnr("vimtweak.dll","SetAlpha",226)<cr>
+
+cd d:WWW\javascript
