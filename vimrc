@@ -21,6 +21,7 @@ Plugin 'Shougo/neocomplcache'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'kien/ctrlp.vim'
+Plugin 'vimwiki/vimwiki'
 "Plugin 'SirVer/ultisnips'
 "Plugin 'L9'
 "Plugin 'git://git.wincent.com/command-t.git'
@@ -80,8 +81,8 @@ set incsearch
 set fileformat=unix "防止window下的doc文件出现^M报错
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
-"set guifont=yaHei_consolas_hybrid:h13
-set guifont=yaHei_consolas_hybrid:h12
+"set guifont=yaHei_consolas_hybrid:h12
+set guifont=yaHei_consolas_hybrid:h11
 set backspace=indent,eol,start
 syntax on
 color molokai
@@ -113,9 +114,9 @@ let g:neocomplcache_enable_at_startup = 1
 
 "neosnippet snippets代码块补全
 " Plugin key-mappings.
-imap <TAB>     <Plug>(neosnippet_expand_or_jump)
-smap <TAB>     <Plug>(neosnippet_expand_or_jump)
-xmap <TAB>     <Plug>(neosnippet_expand_target)
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
@@ -133,4 +134,11 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets' " Tell
 map <leader>W :call libcallnr("vimtweak.dll","SetAlpha",255)<cr>
 map <leader>w :call libcallnr("vimtweak.dll","SetAlpha",226)<cr>
 
-cd d:WWW\javascript
+cd vimwiki
+
+" vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+			\ 'path_html': '~/vimwiki/html/',
+			\ 'template_path': '~/vimwiki/template/',
+			\ 'template_default': 'template',
+			\ 'template_ext': '.html'}]
