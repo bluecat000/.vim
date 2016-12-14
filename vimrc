@@ -78,6 +78,8 @@ set cindent
 set shortmess=atI
 set nocompatible
 set incsearch
+set hls
+set ic
 set fileformat=unix "防止window下的doc文件出现^M报错
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
@@ -142,3 +144,4 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 			\ 'template_path': '~/vimwiki/template/',
 			\ 'template_default': 'template',
 			\ 'template_ext': '.html'}]
+nmap <f4> <Plug>Vimwiki2HTML
