@@ -35,4 +35,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
 ```vim
 BundleInstall
 ```
-
+- 解决BundleSearch报错
+```cmd
+安装curl
+```
