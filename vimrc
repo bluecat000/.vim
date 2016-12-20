@@ -84,7 +84,7 @@ set fileformat=unix "防止window下的doc文件出现^M报错
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
 "set guifont=yaHei_consolas_hybrid:h12
-set guifont=yaHei_consolas_hybrid:h11
+set guifont=mono\ 11
 set backspace=indent,eol,start
 syntax on
 color molokai
@@ -136,12 +136,13 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets' " Tell
 map <leader>W :call libcallnr("vimtweak.dll","SetAlpha",255)<cr>
 map <leader>w :call libcallnr("vimtweak.dll","SetAlpha",226)<cr>
 
-cd vimwiki
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-			\ 'path_html': '~/vimwiki/html/',
-			\ 'template_path': '~/vimwiki/template/',
+let g:vimwiki_list = [{'path': '~/vimwiki/wiki',
+			\ 'path_html': '~/vimwiki/',
+			\ 'template_path': '~/vimwiki/',
 			\ 'template_default': 'template',
 			\ 'template_ext': '.html'}]
 nmap <f4> <Plug>Vimwiki2HTML
+
+cd vimwiki/
