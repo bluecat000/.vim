@@ -1,16 +1,17 @@
 # myVim
 该vim配置面向前端,linux window 通用
-截图
-![截图预览](screenshot.png)
+
+##截图
+![截图预览](http://github.com/bluecat000/.vim/raw/master/screenshot.png)
 ---
-面向语言:
+##面向语言:
 ---
 - javascript
 - css
 - html5
 - php
 
-安装:
+##安装:
 -----------
 1. 克隆项目
 ```cmd
