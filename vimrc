@@ -22,7 +22,9 @@ Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vimwiki/vimwiki'
-"Plugin 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
+Plugin 'godlygeek/tabular'
+Plugin 'suan/vim-instant-markdown'
 "Plugin 'L9'
 "Plugin 'git://git.wincent.com/command-t.git'
 "Plugin 'file:///home/gmarik/path/to/plugin'
@@ -83,14 +85,28 @@ set ic
 set fileformat=unix "防止window下的doc文件出现^M报错
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
-"set guifont=yaHei_consolas_hybrid:h12
-set guifont=mono\ 11
 set backspace=indent,eol,start
 syntax on
 color molokai
 set guicursor=n-v-c:ver1,i-ci:ver1 "改变游标样式
 set vb t_vb= "关闭声音
 au GuiEnter * set t_vb= "关闭闪烁报错
+
+
+"判断操作系统
+if has('win32')
+	"windows 透明设置
+	" if executable("vimtweak.dll") "默认打开透明
+	" 	autocmd guienter * call libcallnr("vimtweak","SetAlpha",226) 
+	" endif 
+	map <leader>W :call libcallnr("vimtweak.dll","SetAlpha",255)<cr>
+	map <leader>w :call libcallnr("vimtweak.dll","SetAlpha",226)<cr>
+	set guifont=yaHei_consolas_hybrid:h12
+elseif has('unix')
+	set guifont=mono\ 11
+elseif has('mac')
+	set guifont=mono\ 11
+endif
 
 "关闭菜单栏
 if has("gui_running")
@@ -129,20 +145,16 @@ endif
 let g:neosnippet#enable_snipmate_compatibility = 1 " Enable snipMate compatibility feature.
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets' " Tell Neosnippet about the other snippets
 
-"windows 透明设置
-" if executable("vimtweak.dll") 
-" 	autocmd guienter * call libcallnr("vimtweak","SetAlpha",226) 
-" endif 
-map <leader>W :call libcallnr("vimtweak.dll","SetAlpha",255)<cr>
-map <leader>w :call libcallnr("vimtweak.dll","SetAlpha",226)<cr>
-
 
 " vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/wiki',
 			\ 'path_html': '~/vimwiki/',
 			\ 'template_path': '~/vimwiki/',
 			\ 'template_default': 'template',
+			\ 'nested_syntaxes':{'python': 'python', 'c++': 'cpp'},
 			\ 'template_ext': '.html'}]
 nmap <f4> <Plug>Vimwiki2HTML
 
 cd vimwiki/
+
+let g:instant_markdown_slow = 1
