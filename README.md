@@ -1,9 +1,11 @@
 # myVim
+---
 该vim配置面向前端,linux window 通用
 
 ##截图
-![截图预览](http://github.com/bluecat000/.vim/raw/master/screenshot.png)
 ---
+![截图预览](http://github.com/bluecat000/.vim/raw/master/screenshot.png)
+
 ##面向语言:
 ---
 - javascript
@@ -12,7 +14,7 @@
 - php
 
 ##安装:
------------
+---
 1. 克隆项目
 ```cmd
 cd $HOME
@@ -39,8 +41,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
 ```vim
 :BundleInstall
 ```
----
+
 ## Note
+---
 - 解决BundleSearch报错
 ```cmd
 安装curl
