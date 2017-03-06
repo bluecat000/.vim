@@ -127,13 +127,5 @@ let g:UltiSnipsEditSplit="vertical"
 "%匹配html标签
 runtime macros/matchit.vim  
 
-" vimwiki
-let g:vimwiki_list = [{'path': '~/vimwiki/wiki',
-			\ 'path_html': '~/vimwiki/',
-			\ 'template_path': '~/vimwiki/',
-			\ 'template_default': 'template',
-			\ 'nested_syntaxes':{'python': 'python', 'c++': 'cpp'},
-			\ 'template_ext': '.html'}]
-nmap <f4> <Plug>Vimwiki2HTML
-
+"md文件实时刷新
 let g:instant_markdown_slow = 1
