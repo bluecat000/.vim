@@ -12,19 +12,18 @@ Plugin 'emmet.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Vim-airline'
 Plugin 'php.vim'
-Plugin 'honza/vim-snippets'
 Plugin 'vim-scripts/netrw.vim'
 Plugin 'javascript.vim'
 Plugin 'othree/html5.vim'
 Plugin 'gorodinskiy/vim-coloresque.git'
-Plugin 'Shougo/neocomplcache'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vimwiki/vimwiki'
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'godlygeek/tabular'
 Plugin 'suan/vim-instant-markdown'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'marijnh/tern_for_vim'
 "Plugin 'L9'
 "Plugin 'git://git.wincent.com/command-t.git'
 "Plugin 'file:///home/gmarik/path/to/plugin'
@@ -120,31 +119,13 @@ if has("gui_running")
 endif
 
 "UltiSnips
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
 "%匹配html标签
 runtime macros/matchit.vim  
-"neocomplete 代码补全设置(cache omnifunc)
-let g:neocomplcache_enable_at_startup = 1 
-
-"neosnippet snippets代码块补全
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-if has('conceal')
-	set conceallevel=2 concealcursor=niv " For conceal markers.
-endif
-let g:neosnippet#enable_snipmate_compatibility = 1 " Enable snipMate compatibility feature.
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets' " Tell Neosnippet about the other snippets
-
 
 " vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/wiki',
@@ -154,7 +135,5 @@ let g:vimwiki_list = [{'path': '~/vimwiki/wiki',
 			\ 'nested_syntaxes':{'python': 'python', 'c++': 'cpp'},
 			\ 'template_ext': '.html'}]
 nmap <f4> <Plug>Vimwiki2HTML
-
-cd vimwiki/
 
 let g:instant_markdown_slow = 1
