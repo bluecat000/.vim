@@ -43,4 +43,4 @@ git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
 ```cmd
 安装curl
 ```
-- 添加py支持
+- 需要添加py支持
