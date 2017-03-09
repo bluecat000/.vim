@@ -13,17 +13,15 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Vim-airline'
 Plugin 'php.vim'
 Plugin 'vim-scripts/netrw.vim'
-Plugin 'javascript.vim'
 Plugin 'othree/html5.vim'
 Plugin 'gorodinskiy/vim-coloresque.git'
 Plugin 'kien/ctrlp.vim'
-Plugin 'vimwiki/vimwiki'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'godlygeek/tabular'
 Plugin 'suan/vim-instant-markdown'
+Plugin 'marijnh/tern_for_vim'
 "Plugin 'Valloric/YouCompleteMe'
-"Plugin 'marijnh/tern_for_vim'
 "Plugin 'L9'
 "Plugin 'git://git.wincent.com/command-t.git'
 "Plugin 'file:///home/gmarik/path/to/plugin'
@@ -54,13 +52,13 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 nnoremap <C-TAB> :bn<CR>
 nnoremap <S-TAB> :bp<CR>
 
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = 'BR:'
+let g:airline_left_sep         = ''
+let g:airline_left_alt_sep     = ''
+let g:airline_right_sep        = ''
+let g:airline_right_alt_sep    = ''
+let g:airline_symbols.branch   = 'BR:'
 let g:airline_symbols.readonly = 'Lk'
-let g:airline_symbols.linenr = 'LN:'
+let g:airline_symbols.linenr   = 'LN:'
 
 "解决菜单乱码 (window)
 source $VIMRUNTIME/delmenu.vim
@@ -119,13 +117,16 @@ if has("gui_running")
 endif
 
 "UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger       = "<tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<c-b>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
+let g:UltiSnipsEditSplit           = "vertical"
 
 "%匹配html标签
 runtime macros/matchit.vim  
 
-"md文件实时刷新
+"markdown实时刷新
 let g:instant_markdown_slow = 1
+
+"tern_for_vim
+autocmd FileType javascript setlocal omnifunc=tern#Complete
