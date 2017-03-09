@@ -21,6 +21,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'godlygeek/tabular'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'marijnh/tern_for_vim'
+Plugin 'The-NERD-tree'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'L9'
 "Plugin 'git://git.wincent.com/command-t.git'
@@ -71,6 +72,7 @@ syntax on
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set expandtab
 set autoindent
 set smartindent
 set cindent
@@ -86,6 +88,7 @@ set backspace=indent,eol,start
 syntax on
 color molokai
 set guicursor=n-v-c:ver1,i-ci:ver1 "改变游标样式
+set hidden "切换文件时保存撤销步骤
 set vb t_vb= "关闭声音
 au GuiEnter * set t_vb= "关闭闪烁报错
 
@@ -98,7 +101,8 @@ if has('win32')
 	" endif 
 	map <leader>W :call libcallnr("vimtweak.dll","SetAlpha",255)<cr>
 	map <leader>w :call libcallnr("vimtweak.dll","SetAlpha",226)<cr>
-	set guifont=yaHei_consolas_hybrid:h12
+	set guifont=yaHei_consolas_hybrid:h14
+	autocmd GUIEnter * simalt ~x "全屏
 elseif has('unix')
 	set guifont=mono\ 11
 elseif has('mac')
@@ -113,7 +117,7 @@ if has("gui_running")
 	set guioptions-=r 
 	set guioptions-=b 
 	set showtabline=0 
-	color molokai "gvim时启用solarized
+	color solarized "gvim时启用solarized
 endif
 
 "UltiSnips
@@ -130,3 +134,10 @@ let g:instant_markdown_slow = 1
 
 "tern_for_vim
 autocmd FileType javascript setlocal omnifunc=tern#Complete
+
+"nerdtree快捷键
+map <F8> :NERDTreeToggle<CR>
+autocmd VimEnter * NERDTree
+
+"html5插件：自动换行缩进(以下是不需要换行得标签)
+let g:html_exclude_tags = ['html', 'style', 'script', 'body']
