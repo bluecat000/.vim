@@ -14,7 +14,7 @@
 1. 克隆项目
 ```cmd
 cd $HOME
-git clone https://github.com/lamper000/.vim.git
+git clone https://github.com/bluecat000/.vim.git
 ```
 2. 创建vimrc文件
 
@@ -43,4 +43,5 @@ git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
 ```cmd
 安装curl
 ```
-- 需要添加py支持
+- 解决ultisnip报错
+需要添加py支持
