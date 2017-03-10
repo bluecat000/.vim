@@ -22,6 +22,9 @@ Plugin 'godlygeek/tabular'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'The-NERD-tree'
+Plugin 'jQuery'
+Plugin 'vim-scripts/taglist.vim'
+
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'L9'
 "Plugin 'git://git.wincent.com/command-t.git'
@@ -141,3 +144,9 @@ autocmd VimEnter * NERDTree
 
 "html5插件：自动换行缩进(以下是不需要换行得标签)
 let g:html_exclude_tags = ['html', 'style', 'script', 'body']
+
+"jQuery高亮插件
+au BufRead,BufNewFile *.js set syntax=jquery
+
+"进入项目目录
+"cd f:\work\yingxiao
