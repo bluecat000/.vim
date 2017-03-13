@@ -152,7 +152,11 @@ let g:html_exclude_tags = ['html', 'style', 'script', 'body']
 au BufRead,BufNewFile *.js set syntax=jquery
 
 "进入项目目录
-cd f:\work\yingxiao
+"cd f:\work\yingxiao
+
+" taglist
+map <F7> :TlistToggle<CR>
+let g:Tlist_Use_Right_Window=1
 
 " jshint
 let jshint2_command = '$APPDATA/npm/jshint/.bin/jshint' " Lint JavaScript files after reading it:
