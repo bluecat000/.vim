@@ -24,6 +24,8 @@ Plugin 'marijnh/tern_for_vim'
 Plugin 'The-NERD-tree'
 Plugin 'jQuery'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'Shutnik/jshint2.vim'
 
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'L9'
@@ -93,6 +95,7 @@ color molokai
 set guicursor=n-v-c:ver1,i-ci:ver1 "改变游标样式
 set hidden "切换文件时保存撤销步骤
 set vb t_vb= "关闭声音
+set noswapfile "不生成swp文件
 au GuiEnter * set t_vb= "关闭闪烁报错
 
 
@@ -149,4 +152,22 @@ let g:html_exclude_tags = ['html', 'style', 'script', 'body']
 au BufRead,BufNewFile *.js set syntax=jquery
 
 "进入项目目录
-"cd f:\work\yingxiao
+cd f:\work\yingxiao
+
+" jshint
+let jshint2_command = '$APPDATA/npm/jshint/.bin/jshint' " Lint JavaScript files after reading it:
+
+let jshint2_read = 1 "Lint JavaScript files after saving it:
+
+let jshint2_save = 1 "Do not automatically close orphaned error lists:
+
+let jshint2_close = 0 "Skip lint confirmation for non JavaScript files:
+
+let jshint2_confirm = 0 "Do not use colored messages:
+
+let jshint2_color = 0 "Hide error codes in error list (if you don't use error ignoring or error codes confuses you):
+
+let jshint2_error = 0 "Set min and max height of error list:
+
+let jshint2_min_height = 3
+let jshint2_max_height = 12
