@@ -20,12 +20,13 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'godlygeek/tabular'
 Plugin 'suan/vim-instant-markdown'
-Plugin 'marijnh/tern_for_vim'
+"Plugin 'marijnh/tern_for_vim'
 Plugin 'The-NERD-tree'
-Plugin 'jQuery'
+"Plugin 'jQuery'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Shutnik/jshint2.vim'
+Plugin 'jelera/vim-javascript-syntax'
 
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'L9'
@@ -72,8 +73,10 @@ source $VIMRUNTIME/menu.vim
 language messages zh_CN.utf-8
 
 "常规配置
+set runtimepath+=~/.vim/ "设置运行时目录(针对于UltiSnips)
 set number
 syntax on
+syntax enable
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -90,7 +93,6 @@ set fileformat=unix "防止window下的doc文件出现^M报错
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
 set backspace=indent,eol,start
-syntax on
 color molokai
 set guicursor=n-v-c:ver1,i-ci:ver1 "改变游标样式
 set hidden "切换文件时保存撤销步骤
@@ -123,7 +125,7 @@ if has("gui_running")
 	set guioptions-=r 
 	set guioptions-=b 
 	set showtabline=0 
-	color solarized "gvim时启用solarized
+	color hybrid "gvim时启用solarized
 endif
 
 "UltiSnips
@@ -139,17 +141,17 @@ runtime macros/matchit.vim
 let g:instant_markdown_slow = 1
 
 "tern_for_vim
-autocmd FileType javascript setlocal omnifunc=tern#Complete
+" autocmd FileType javascript setlocal omnifunc=tern#Complete
 
 "nerdtree快捷键
 map <F8> :NERDTreeToggle<CR>
-autocmd VimEnter * NERDTree
+"autocmd VimEnter * NERDTree
 
 "html5插件：自动换行缩进(以下是不需要换行得标签)
 let g:html_exclude_tags = ['html', 'style', 'script', 'body']
 
 "jQuery高亮插件
-au BufRead,BufNewFile *.js set syntax=jquery
+" au BufRead,BufNewFile *.js set syntax=jquery
 
 "进入项目目录
 "cd f:\work\yingxiao
@@ -158,7 +160,7 @@ au BufRead,BufNewFile *.js set syntax=jquery
 map <F7> :TlistToggle<CR>
 let g:Tlist_Use_Right_Window=1
 
-" jshint
+" jshint(未成功)
 let jshint2_command = '$APPDATA/npm/jshint/.bin/jshint' " Lint JavaScript files after reading it:
 
 let jshint2_read = 1 "Lint JavaScript files after saving it:
