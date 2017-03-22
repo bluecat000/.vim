@@ -50,7 +50,7 @@ set t_Co=256
 set laststatus=2  
 set lazyredraw  
 let g:airline#extensions#tabline#enabled = 1 "buffers
-let g:airline_theme="luna" 
+let g:airline_theme="molokai" 
 let g:airline_powerline_fonts=1  
 if !exists('g:airline_symbols')  
 	let g:airline_symbols={}  
@@ -109,7 +109,7 @@ if has('win32')
 	" endif 
 	map <leader>W :call libcallnr("vimtweak.dll","SetAlpha",255)<cr>
 	map <leader>w :call libcallnr("vimtweak.dll","SetAlpha",226)<cr>
-	set guifont=yaHei_consolas_hybrid:h14
+	set guifont=yaHei_consolas_hybrid:h13
 	autocmd GUIEnter * simalt ~x "全屏
 elseif has('unix')
 	set guifont=mono\ 11
@@ -154,7 +154,7 @@ let g:html_exclude_tags = ['html', 'style', 'script', 'body']
 " au BufRead,BufNewFile *.js set syntax=jquery
 
 "进入项目目录
-"cd f:\work\yingxiao
+cd f:\work\spread\
 
 " taglist
 map <F7> :TlistToggle<CR>
