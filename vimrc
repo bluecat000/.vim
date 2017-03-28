@@ -20,15 +20,16 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'godlygeek/tabular'
 Plugin 'suan/vim-instant-markdown'
-"Plugin 'marijnh/tern_for_vim'
 Plugin 'The-NERD-tree'
-"Plugin 'jQuery'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'The-NERD-Commenter'
 
+"Plugin 'jQuery'
 "Plugin 'Valloric/YouCompleteMe'
+"Plugin 'marijnh/tern_for_vim'
 "Plugin 'L9'
 "Plugin 'git://git.wincent.com/command-t.git'
 "Plugin 'file:///home/gmarik/path/to/plugin'
@@ -93,12 +94,13 @@ set fileformat=unix "防止window下的doc文件出现^M报错
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
 set backspace=indent,eol,start
-color molokai
+color hybrid
 set guicursor=n-v-c:ver1,i-ci:ver1 "改变游标样式
 set hidden "切换文件时保存撤销步骤
 set vb t_vb= "关闭声音
 set noswapfile "不生成swp文件
 au GuiEnter * set t_vb= "关闭闪烁报错
+set completeopt=longest,menu "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 
 
 "判断操作系统
@@ -141,7 +143,7 @@ runtime macros/matchit.vim
 let g:instant_markdown_slow = 1
 
 "tern_for_vim
-" autocmd FileType javascript setlocal omnifunc=tern#Complete
+"autocmd FileType javascript setlocal omnifunc=tern#Complete
 
 "nerdtree快捷键
 map <F8> :NERDTreeToggle<CR>
@@ -154,26 +156,14 @@ let g:html_exclude_tags = ['html', 'style', 'script', 'body']
 " au BufRead,BufNewFile *.js set syntax=jquery
 
 "进入项目目录
-cd f:\work\spread\
+cd f:\work\yingxiao\
 
 " taglist
 map <F7> :TlistToggle<CR>
 let g:Tlist_Use_Right_Window=1
 
-" jshint(未成功)
-let jshint2_command = '$APPDATA/npm/jshint/.bin/jshint' " Lint JavaScript files after reading it:
+" javascript 缩进为4空格
+" autocmd FileType javascript set tabstop=2
+" autocmd FileType javascript set softtabstop=2
+" autocmd FileType javascript set shiftwidth=2
 
-let jshint2_read = 1 "Lint JavaScript files after saving it:
-
-let jshint2_save = 1 "Do not automatically close orphaned error lists:
-
-let jshint2_close = 0 "Skip lint confirmation for non JavaScript files:
-
-let jshint2_confirm = 0 "Do not use colored messages:
-
-let jshint2_color = 0 "Hide error codes in error list (if you don't use error ignoring or error codes confuses you):
-
-let jshint2_error = 0 "Set min and max height of error list:
-
-let jshint2_min_height = 3
-let jshint2_max_height = 12
