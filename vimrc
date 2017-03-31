@@ -10,7 +10,8 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'emmet.vim'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'Vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'php.vim'
 Plugin 'vim-scripts/netrw.vim'
 Plugin 'othree/html5.vim'
@@ -27,6 +28,7 @@ Plugin 'Shutnik/jshint2.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'The-NERD-Commenter'
 Plugin 'scrooloose/syntastic'
+Plugin 'Auto-Pairs'
 
 "Plugin 'jQuery'
 "Plugin 'Valloric/YouCompleteMe'
@@ -52,7 +54,7 @@ set t_Co=256
 set laststatus=2  
 set lazyredraw  
 let g:airline#extensions#tabline#enabled = 1 "buffers
-let g:airline_theme="molokai" 
+let g:airline_theme="onedark" 
 let g:airline_powerline_fonts=1  
 if !exists('g:airline_symbols')  
 	let g:airline_symbols={}  
@@ -128,7 +130,7 @@ if has("gui_running")
 	set guioptions-=r 
 	set guioptions-=b 
 	set showtabline=0 
-	color hybrid "gvim时启用solarized
+	color onedark "gvim时启用solarized
 endif
 
 "UltiSnips
@@ -163,12 +165,12 @@ let g:html_exclude_tags = ['html', 'style', 'script', 'body']
 map <F7> :TlistToggle<CR>
 let g:Tlist_Use_Right_Window=1
 
-" javascript 缩进为4空格
+" "javascript 缩进为4空格
 " autocmd FileType javascript set tabstop=2
 " autocmd FileType javascript set softtabstop=2
 " autocmd FileType javascript set shiftwidth=2
 
-"jshint2 F1呼出错误面板
+" "jshint2 F1呼出错误面板
 " nnoremap <silent><F1> :JSHint<CR>
 " inoremap <silent><F1> <C-O>:JSHint<CR>
 " vnoremap <silent><F1> :JSHint<CR>
@@ -182,3 +184,6 @@ let g:Tlist_Use_Right_Window=1
 " let g:syntastic_auto_loc_list = 0
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
+
+" auto pair 自动补全括号,分号等
+"let g:AutoPairsFlyMode = 1 
