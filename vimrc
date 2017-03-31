@@ -26,6 +26,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'The-NERD-Commenter'
+Plugin 'scrooloose/syntastic'
 
 "Plugin 'jQuery'
 "Plugin 'Valloric/YouCompleteMe'
@@ -156,7 +157,7 @@ let g:html_exclude_tags = ['html', 'style', 'script', 'body']
 " au BufRead,BufNewFile *.js set syntax=jquery
 
 "进入项目目录
-cd f:\work\yingxiao\
+"cd f:\work\yingxiao\
 
 " taglist
 map <F7> :TlistToggle<CR>
@@ -167,3 +168,17 @@ let g:Tlist_Use_Right_Window=1
 " autocmd FileType javascript set softtabstop=2
 " autocmd FileType javascript set shiftwidth=2
 
+"jshint2 F1呼出错误面板
+" nnoremap <silent><F1> :JSHint<CR>
+" inoremap <silent><F1> <C-O>:JSHint<CR>
+" vnoremap <silent><F1> :JSHint<CR>
+" 
+" "syntastic 在行前显示
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" 
+" let g:syntastic_always_populate_loc_list = 0
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
