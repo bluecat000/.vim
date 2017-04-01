@@ -25,14 +25,17 @@ Plugin 'The-NERD-tree'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Shutnik/jshint2.vim'
-Plugin 'jelera/vim-javascript-syntax'
 Plugin 'The-NERD-Commenter'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'Auto-Pairs'
+Plugin 'node.js'
+Plugin 'ternjs/tern_for_vim' 
+Plugin 'othree/javascript-libraries-syntax.vim'
 
+"Plugin 'jelera/vim-javascript-syntax'
+"Plugin 'isRuslan/vim-es6' 
 "Plugin 'jQuery'
 "Plugin 'Valloric/YouCompleteMe'
-"Plugin 'marijnh/tern_for_vim'
 "Plugin 'L9'
 "Plugin 'git://git.wincent.com/command-t.git'
 "Plugin 'file:///home/gmarik/path/to/plugin'
@@ -46,7 +49,10 @@ filetype plugin indent on    " required
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"tern_for_vim
+autocmd FileType javascript setlocal omnifunc=tern#Complete
+
 
 "编码设置(windows airline)
 set encoding=utf-8
@@ -145,18 +151,12 @@ runtime macros/matchit.vim
 "markdown实时刷新
 let g:instant_markdown_slow = 1
 
-"tern_for_vim
-"autocmd FileType javascript setlocal omnifunc=tern#Complete
-
 "nerdtree快捷键
 map <F8> :NERDTreeToggle<CR>
-"autocmd VimEnter * NERDTree
+"autocmd VimEnter * NERDTree "自动打开nerdtree
 
 "html5插件：自动换行缩进(以下是不需要换行得标签)
 let g:html_exclude_tags = ['html', 'style', 'script', 'body']
-
-"jQuery高亮插件
-" au BufRead,BufNewFile *.js set syntax=jquery
 
 "进入项目目录
 "cd f:\work\yingxiao\
@@ -185,5 +185,5 @@ let g:Tlist_Use_Right_Window=1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 
-" auto pair 自动补全括号,分号等
-"let g:AutoPairsFlyMode = 1 
+"js库高亮
+let g:used_javascript_libs = 'jquery,vue'
