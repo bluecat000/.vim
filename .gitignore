@@ -1,3 +1,4 @@
 *.swp
-bundle/*
+autoload/*
+plugged/*
 !bundle/Vundle.vim
