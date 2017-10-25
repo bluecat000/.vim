@@ -1,7 +1,25 @@
 # 自定义snippet文件
+snippet imp 
+import '${1}';
+endsnippet
+
+snippet impf
+import ${1} from '${2}';
+endsnippet
+
+snippet req	
+require('${1}');
+endsnippet
+	
 snippet arg
 arguments[${1}]${2}
 endsnippet
+
+snippet log "console.log"
+console.log(${1});
+endsnippet
+
 snippet ? "三元表达式"
 ${1:bool} ? ${2:value1} : ${3:value2};
 endsnippet
+

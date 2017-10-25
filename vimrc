@@ -26,12 +26,15 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'The-NERD-Commenter'
-"Plugin 'scrooloose/syntastic'
 Plugin 'Auto-Pairs'
 Plugin 'node.js'
-Plugin 'ternjs/tern_for_vim' 
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'mhartington/oceanic-next'
+Plugin 'othree/yajs.vim'
+Plugin '907th/vim-auto-save'
 
+"Plugin 'ternjs/tern_for_vim' 
+"Plugin 'scrooloose/syntastic'
 "Plugin 'jelera/vim-javascript-syntax'
 "Plugin 'isRuslan/vim-es6' 
 "Plugin 'jQuery'
@@ -49,10 +52,11 @@ filetype plugin indent on    " required
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 "tern_for_vim
-autocmd FileType javascript setlocal omnifunc=tern#Complete
+"autocmd FileType javascript setlocal omnifunc=tern#Complete
 
+autocmd BufRead,BufNewFile *.vue set filetype=html
 
 "编码设置(windows airline)
 set encoding=utf-8
@@ -60,7 +64,7 @@ set t_Co=256
 set laststatus=2  
 set lazyredraw  
 let g:airline#extensions#tabline#enabled = 1 "buffers
-let g:airline_theme="onedark" 
+let g:airline_theme="oceanicnext" 
 let g:airline_powerline_fonts=1  
 if !exists('g:airline_symbols')  
 	let g:airline_symbols={}  
@@ -87,9 +91,9 @@ set runtimepath+=~/.vim/ "设置运行时目录(针对于UltiSnips)
 set number
 syntax on
 syntax enable
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 set smartindent
@@ -103,40 +107,45 @@ set fileformat=unix "防止window下的doc文件出现^M报错
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
 set backspace=indent,eol,start
-color hybrid
-set guicursor=n-v-c:ver1,i-ci:ver1 "改变游标样式
+"set guicursor=n-v-c:ver1,i-ci:ver1 "改变游标样式
 set hidden "切换文件时保存撤销步骤
 set vb t_vb= "关闭声音
 set noswapfile "不生成swp文件
 au GuiEnter * set t_vb= "关闭闪烁报错
 set completeopt=longest,menu "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
-
+if (has("termguicolors"))
+    set termguicolors
+endif
+colorscheme OceanicNext
+"color hybrid
 
 "判断操作系统
 if has('win32')
-	"windows 透明设置
-	" if executable("vimtweak.dll") "默认打开透明
-	" 	autocmd guienter * call libcallnr("vimtweak","SetAlpha",226) 
-	" endif 
-	map <leader>W :call libcallnr("vimtweak.dll","SetAlpha",255)<cr>
-	map <leader>w :call libcallnr("vimtweak.dll","SetAlpha",226)<cr>
-	set guifont=yaHei_consolas_hybrid:h13
-	autocmd GUIEnter * simalt ~x "全屏
+    "windows 透明设置
+    " if executable("vimtweak.dll") "默认打开透明
+    " 	autocmd guienter * call libcallnr("vimtweak","SetAlpha",226) 
+    " endif 
+    map <leader>W :call libcallnr("vimtweak.dll","SetAlpha",255)<cr>
+    map <leader>w :call libcallnr("vimtweak.dll","SetAlpha",226)<cr>
+    set guifont=yaHei_consolas_hybrid:h11
+    "set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI:qDRAFT
+    autocmd GUIEnter * simalt ~x "全屏
 elseif has('unix')
-	set guifont=mono\ 11
+    set guifont=mono\ 11
 elseif has('mac')
-	set guifont=mono\ 11
+    set guifont=mono\ 11
 endif
 
 "关闭菜单栏
 if has("gui_running")
-	set guioptions-=m 
-	set guioptions-=T 
-	set guioptions-=L 
-	set guioptions-=r 
-	set guioptions-=b 
-	set showtabline=0 
-	color onedark "gvim时启用solarized
+    set guioptions-=m 
+    set guioptions-=T 
+    set guioptions-=L 
+    set guioptions-=r 
+    set guioptions-=b 
+    set showtabline=0 
+    colorscheme OceanicNext
+    "color onedark "gvim时启用solarized
 endif
 
 "UltiSnips
@@ -144,6 +153,9 @@ let g:UltiSnipsExpandTrigger       = "<tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<c-b>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 let g:UltiSnipsEditSplit           = "vertical"
+
+" 自动保存
+let g:auto_save_events = ["InsertLeave", "TextChanged"]
 
 "%匹配html标签
 runtime macros/matchit.vim  
@@ -159,7 +171,7 @@ map <F8> :NERDTreeToggle<CR>
 let g:html_exclude_tags = ['html', 'style', 'script', 'body']
 
 "进入项目目录
-"cd f:\work\yingxiao\
+"cd e:\work\appweb
 
 " taglist
 map <F7> :TlistToggle<CR>
@@ -187,3 +199,10 @@ let g:Tlist_Use_Right_Window=1
 
 "js库高亮
 let g:used_javascript_libs = 'jquery,vue'
+
+" ctrlP
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|png|jpg|ico)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
