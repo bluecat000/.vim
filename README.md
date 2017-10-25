@@ -28,11 +28,8 @@ git clone https://github.com/bluecat000/.vim.git
 	cp .vim/vimrc .
 	mv vimrc .vimrc
 	```
-3. 安装vundle管理工具
-```cmd
-cd $HOME
-git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
-```
+3. 安装vim-plug管理工具
+[vim-plug](https://github.com/junegunn/vim-plug/)
 4. 安装插件
 ```vim
 :BundleInstall
