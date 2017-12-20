@@ -38,41 +38,10 @@ Plugin 'Auto-Pairs'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-"代码提示
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-
-"tern_for_vim
-autocmd FileType javascript setlocal omnifunc=tern#Complete
-
-autocmd BufRead,BufNewFile *.vue set filetype=html "设置vue文件模式为html
-
-"编码设置(windows airline)
-set laststatus=2  
-set lazyredraw  
-let g:airline#extensions#tabline#enabled = 1 "buffers
-let g:airline_theme="oceanicnext" 
-let g:airline_powerline_fonts=1  
-if !exists('g:airline_symbols')  
-  let g:airline_symbols={}  
-endif
-let g:airline#extensions#tabline#buffer_nr_show = 1
-nnoremap <C-TAB> :bn<CR>
-nnoremap <S-TAB> :bp<CR>
-
-let g:airline_left_sep         = ''
-let g:airline_left_alt_sep     = ''
-let g:airline_right_sep        = ''
-let g:airline_right_alt_sep    = ''
-let g:airline_symbols.branch   = 'BR:'
-let g:airline_symbols.readonly = 'Lk'
-let g:airline_symbols.linenr   = 'LN:'
-let g:airline_symbols.maxlinenr = ' COL'
-
-
 "常规配置
 set shortmess=atI "启动不出现提示语
+set encoding=utf-8
+set t_Co=256  
 set runtimepath+=~/.vim/ "设置运行时目录(针对于UltiSnips)
 set number
 syntax on
@@ -113,6 +82,14 @@ endif
 colorscheme OceanicNext " 主题
 "color hybrid
 
+"代码提示
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+"tern_for_vim
+autocmd FileType javascript setlocal omnifunc=tern#Complete
+autocmd BufRead,BufNewFile *.vue set filetype=html "设置vue文件模式为html
+
 "判断操作系统
 if has('win32')
   "windows 透明设置
@@ -121,19 +98,35 @@ if has('win32')
   " endif 
   map <leader>W :call libcallnr("vimtweak.dll","SetAlpha",255)<cr>
   map <leader>w :call libcallnr("vimtweak.dll","SetAlpha",226)<cr>
-  set guifont=yaHei_consolas_hybrid:h12
+  "set guifont=yaHei_consolas_hybrid:h12
   "set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI:qDRAFT
+  set guifont=Powerline_Consolas:h13:cANSI
+  set guifontwide=YaHei_Consolas_Hybrid:h13
   autocmd GUIEnter * simalt ~x "全屏
   "解决菜单乱码 (window)
   source $VIMRUNTIME/delmenu.vim
   source $VIMRUNTIME/menu.vim
   language messages zh_CN.utf-8
-  set encoding=utf-8
-  set t_Co=256  
 elseif has('unix')
   set guifont=mono\ 11
+  let g:airline_left_sep         = ''
+  let g:airline_left_alt_sep     = ''
+  let g:airline_right_sep        = ''
+  let g:airline_right_alt_sep    = ''
+  let g:airline_symbols.branch   = 'BR:'
+  let g:airline_symbols.readonly = 'Lk'
+  let g:airline_symbols.linenr   = 'LN:'
+  let g:airline_symbols.maxlinenr = ' COL'
 elseif has('mac')
   set guifont=mono\ 11
+  let g:airline_left_sep         = ''
+  let g:airline_left_alt_sep     = ''
+  let g:airline_right_sep        = ''
+  let g:airline_right_alt_sep    = ''
+  let g:airline_symbols.branch   = 'BR:'
+  let g:airline_symbols.readonly = 'Lk'
+  let g:airline_symbols.linenr   = 'LN:'
+  let g:airline_symbols.maxlinenr = ' COL'
 endif
 
 "关闭菜单栏
@@ -146,6 +139,19 @@ if has("gui_running")
   set showtabline=0 
   colorscheme OceanicNext
 endif
+
+"airline
+set laststatus=2  
+set lazyredraw  
+let g:airline#extensions#tabline#enabled = 1 "buffers
+let g:airline_theme="oceanicnext" 
+let g:airline_powerline_fonts=1  
+if !exists('g:airline_symbols')  
+  let g:airline_symbols={}  
+endif
+let g:airline#extensions#tabline#buffer_nr_show = 1
+nnoremap <C-TAB> :bn<CR>
+nnoremap <S-TAB> :bp<CR>
 
 "UltiSnips
 let g:UltiSnipsExpandTrigger       = "<tab>"
@@ -187,6 +193,9 @@ let g:ctrlp_custom_ignore = {
 let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 let g:ycm_max_num_candidates = 5
+let g:ycm_semantic_triggers = {
+      \   'css': [ 're!^\s{2}', 're!:\s+' ],
+      \ }
 nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>r :YcmCompleter GoToReferences<CR>
 

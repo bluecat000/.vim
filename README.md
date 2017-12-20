@@ -8,7 +8,6 @@
 - javascript
 - css
 - html5
-- php
 
 ## 安装:
 1. 克隆项目
@@ -28,8 +27,8 @@ git clone https://github.com/bluecat000/.vim.git
 	cp .vim/vimrc .
 	mv vimrc .vimrc
 	```
-3. 安装vim-plug管理工具
-[vim-plug](https://github.com/junegunn/vim-plug/)
+3. 安装Vundle管理工具
+[vim-plug](https://github.com/VundleVim/Vundle.vim)
 4. 安装插件
 ```vim
 :BundleInstall
@@ -42,3 +41,6 @@ git clone https://github.com/bluecat000/.vim.git
 ```
 - 解决ultisnip报错
 需要添加py支持
+
+- window powerline font
+[github](https://github.com/liangfeng/consolas-font-for-airline)
