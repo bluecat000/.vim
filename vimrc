@@ -199,6 +199,11 @@ let g:ycm_semantic_triggers = {
 nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>r :YcmCompleter GoToReferences<CR>
 
+"键盘快捷键
+vnoremap <C-c> "+y
+nnoremap <C-v> "+p
+
 "进入项目目录
 "cd e:\work\appweb
-cd e:\work\admin-manager
+"cd e:\work\admin-manager
+cd e:\work\webmanager2.0-website
