@@ -79,8 +79,9 @@ set iskeyword=@,48-57,_,192-255,-,#,^. " 单词位移时候指定是否为单词
 if (has("termguicolors"))
   set termguicolors
 endif
-colorscheme OceanicNext " 主题
-"color hybrid
+"colorscheme OceanicNext " 主题
+set background=dark
+color solarized
 
 "代码提示
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
@@ -90,61 +91,11 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=tern#Complete
 autocmd BufRead,BufNewFile *.vue set filetype=html "设置vue文件模式为html
 
-"判断操作系统
-if has('win32')
-  "windows 透明设置
-  " if executable("vimtweak.dll") "默认打开透明
-  " 	autocmd guienter * call libcallnr("vimtweak","SetAlpha",226) 
-  " endif 
-  map <leader>W :call libcallnr("vimtweak.dll","SetAlpha",255)<cr>
-  map <leader>w :call libcallnr("vimtweak.dll","SetAlpha",226)<cr>
-  "set guifont=yaHei_consolas_hybrid:h12
-  "set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI:qDRAFT
-  set guifont=Powerline_Consolas:h13:cANSI
-  set guifontwide=YaHei_Consolas_Hybrid:h13
-  autocmd GUIEnter * simalt ~x "全屏
-  "解决菜单乱码 (window)
-  source $VIMRUNTIME/delmenu.vim
-  source $VIMRUNTIME/menu.vim
-  language messages zh_CN.utf-8
-elseif has('unix')
-  set guifont=mono\ 11
-  let g:airline_left_sep         = ''
-  let g:airline_left_alt_sep     = ''
-  let g:airline_right_sep        = ''
-  let g:airline_right_alt_sep    = ''
-  let g:airline_symbols.branch   = 'BR:'
-  let g:airline_symbols.readonly = 'Lk'
-  let g:airline_symbols.linenr   = 'LN:'
-  let g:airline_symbols.maxlinenr = ' COL'
-elseif has('mac')
-  set guifont=mono\ 11
-  let g:airline_left_sep         = ''
-  let g:airline_left_alt_sep     = ''
-  let g:airline_right_sep        = ''
-  let g:airline_right_alt_sep    = ''
-  let g:airline_symbols.branch   = 'BR:'
-  let g:airline_symbols.readonly = 'Lk'
-  let g:airline_symbols.linenr   = 'LN:'
-  let g:airline_symbols.maxlinenr = ' COL'
-endif
-
-"关闭菜单栏
-if has("gui_running")
-  set guioptions-=m 
-  set guioptions-=T 
-  set guioptions-=L 
-  set guioptions-=r 
-  set guioptions-=b 
-  set showtabline=0 
-  colorscheme OceanicNext
-endif
-
 "airline
 set laststatus=2  
 set lazyredraw  
 let g:airline#extensions#tabline#enabled = 1 "buffers
-let g:airline_theme="oceanicnext" 
+let g:airline_theme="solarized" 
 let g:airline_powerline_fonts=1  
 if !exists('g:airline_symbols')  
   let g:airline_symbols={}  
@@ -155,8 +106,8 @@ nnoremap <S-TAB> :bp<CR>
 
 "UltiSnips
 let g:UltiSnipsExpandTrigger       = "<tab>"
-let g:UltiSnipsJumpForwardTrigger  = "<c-b>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
+let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsEditSplit           = "vertical"
 
 "%匹配html标签
@@ -203,7 +154,47 @@ nnoremap <leader>r :YcmCompleter GoToReferences<CR>
 vnoremap <C-c> "+y
 nnoremap <C-v> "+p
 
-"进入项目目录
-"cd e:\work\appweb
-"cd e:\work\admin-manager
-cd e:\work\webmanager2.0-website
+"判断操作系统
+if has('win32')
+  "windows 透明设置
+  " if executable("vimtweak.dll") "默认打开透明
+  " 	autocmd guienter * call libcallnr("vimtweak","SetAlpha",226) 
+  " endif 
+  map <leader>W :call libcallnr("vimtweak.dll","SetAlpha",255)<cr>
+  map <leader>w :call libcallnr("vimtweak.dll","SetAlpha",226)<cr>
+  "set guifont=yaHei_consolas_hybrid:h12
+  "set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI:qDRAFT
+  set guifont=Powerline_Consolas:h13:cANSI
+  set guifontwide=YaHei_Consolas_Hybrid:h13
+  autocmd GUIEnter * simalt ~x "全屏
+  "解决菜单乱码 (window)
+  source $VIMRUNTIME/delmenu.vim
+  source $VIMRUNTIME/menu.vim
+  language messages zh_CN.utf-8
+  "进入项目目录
+  "cd e:\work\appweb
+  "cd e:\work\admin-manager
+  cd e:\work\webmanager2.0-website
+elseif has('unix')
+  "set guifont=mono\ 11
+  "let g:airline_left_sep         = ''
+  "let g:airline_left_alt_sep     = ''
+  "let g:airline_right_sep        = ''
+  "let g:airline_right_alt_sep    = ''
+  "let g:airline_symbols.branch   = 'BR:'
+  "let g:airline_symbols.readonly = 'Lk'
+  "let g:airline_symbols.linenr   = 'LN:'
+  "let g:airline_symbols.maxlinenr = ' COL'
+  "cd work/
+endif
+
+"关闭菜单栏
+if has("gui_running")
+  set guioptions-=m 
+  set guioptions-=T 
+  set guioptions-=L 
+  set guioptions-=r 
+  set guioptions-=b 
+  set showtabline=0 
+  colorscheme OceanicNext
+endif
