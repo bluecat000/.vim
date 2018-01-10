@@ -3,3 +3,5 @@ autoload/*
 plugged/*
 /bundle/*
 !bundle/Vundle.vim
+/view/*
+.netrwhist
