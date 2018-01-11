@@ -3,7 +3,6 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'emmet.vim'
@@ -19,9 +18,6 @@ Plugin 'honza/vim-snippets'
 Plugin 'godlygeek/tabular'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'The-NERD-tree'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Shutnik/jshint2.vim'
 Plugin 'The-NERD-Commenter'
 Plugin 'node.js'
 Plugin 'othree/javascript-libraries-syntax.vim'
@@ -35,6 +31,8 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Auto-Pairs'
 "Plugin 'vim-syntastic/syntastic'
+"Plugin 'airblade/vim-gitgutter'
+"Plugin 'Shutnik/jshint2.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -75,12 +73,15 @@ au BufRead {*.*,.*,_vimrc} silent loadview    " 恢复文件的折叠状态
 nnoremap <space> za             " 用空格来切换折叠状态
 set foldlevel=99 "折叠数
 set iskeyword=@,48-57,_,192-255,-,#,^. " 单词位移时候指定是否为单词
+set cursorcolumn "高亮显示光标
+set cursorline "高亮显示光标
 
 if (has("termguicolors"))
   set termguicolors
 endif
 "colorscheme OceanicNext " 主题
 set background=dark
+"color hybrid
 color solarized
 
 "代码提示
@@ -131,11 +132,7 @@ let g:Tlist_Use_Right_Window=1
 let g:used_javascript_libs = 'jquery,vue' "js库高亮
 
 " ctrlP
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-      \ 'file': '\v\.(exe|so|dll|png|jpg|ico)$',
-      \ 'link': 'some_bad_symbolic_links',
-      \ }
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 "eslint
 "let g:syntastic_javascript_checkers = ['eslint']
@@ -143,17 +140,17 @@ let g:ctrlp_custom_ignore = {
 "ycm
 let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
-let g:ycm_max_num_candidates = 5
+"let g:ycm_min_num_of_chars_for_completion=1 "第一个字符补全
+set pumheight=10 "补全候选词高度"
 let g:ycm_semantic_triggers = {
       \   'css': [ 're!^\s{2}', 're!:\s+' ],
       \ }
 nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>r :YcmCompleter GoToReferences<CR>
 
-"键盘快捷键
-vnoremap <C-c> "+y
-nnoremap <C-v> "+p
+let g:NERDSpaceDelims=1 "注释时候加上空格
 
+"键盘快捷键
 "判断操作系统
 if has('win32')
   "windows 透明设置
@@ -186,6 +183,8 @@ elseif has('unix')
   "let g:airline_symbols.linenr   = 'LN:'
   "let g:airline_symbols.maxlinenr = ' COL'
   "cd work/
+  Plugin 'airblade/vim-gitgutter'
+  Plugin 'tpope/vim-fugitive'
 endif
 
 "关闭菜单栏
@@ -197,4 +196,7 @@ if has("gui_running")
   set guioptions-=b 
   set showtabline=0 
   colorscheme OceanicNext
+  let g:airline_theme="solarized" 
 endif
+
+"let g:AutoPairs={}
