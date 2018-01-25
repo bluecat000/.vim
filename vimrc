@@ -79,9 +79,7 @@ set cursorline "高亮显示光标
 if (has("termguicolors"))
   set termguicolors
 endif
-"colorscheme OceanicNext " 主题
 set background=dark
-"color hybrid
 color solarized
 
 "代码提示
@@ -123,7 +121,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let NERDTreeIgnore=['\~$', 'node_modules'] " 不显示这些文件
 let NERDTreeMinimalUI=1 " 不显示项目树上额外的信息，例如帮助、提示什么的
 
-let g:html_exclude_tags = ['html', 'style', 'script', 'body'] "html5插件：自动换行缩进(以下是不需要换行得标签)
+let g:html_exclude_tags = ['html', 'style', 'script', 'body'] "html5插件：不需要换行的标签
 
 " taglist
 map <F7> :TlistToggle<CR>
@@ -144,6 +142,7 @@ let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 set pumheight=10 "补全候选词高度"
 let g:ycm_semantic_triggers = {
       \   'css': [ 're!^\s{2}', 're!:\s+' ],
+      \   'scss': [ 're!^\s+', 're!:\s+' ],
       \ }
 nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>r :YcmCompleter GoToReferences<CR>
@@ -161,8 +160,8 @@ if has('win32')
   map <leader>w :call libcallnr("vimtweak.dll","SetAlpha",226)<cr>
   "set guifont=yaHei_consolas_hybrid:h12
   "set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI:qDRAFT
-  set guifont=Powerline_Consolas:h13:cANSI
-  set guifontwide=YaHei_Consolas_Hybrid:h13
+  set guifont=Powerline_Consolas:h12:cANSI
+  set guifontwide=YaHei_Consolas_Hybrid:h12
   autocmd GUIEnter * simalt ~x "全屏
   "解决菜单乱码 (window)
   source $VIMRUNTIME/delmenu.vim
@@ -171,7 +170,7 @@ if has('win32')
   "进入项目目录
   "cd e:\work\appweb
   "cd e:\work\admin-manager
-  cd e:\work\webmanager2.0-website
+  cd e:\work
 elseif has('unix')
   "set guifont=mono\ 11
   "let g:airline_left_sep         = ''
@@ -195,8 +194,8 @@ if has("gui_running")
   set guioptions-=r 
   set guioptions-=b 
   set showtabline=0 
-  colorscheme OceanicNext
-  let g:airline_theme="solarized" 
+  " colorscheme OceanicNext
+  " let g:airline_theme="solarized" 
 endif
 
 "let g:AutoPairs={}
