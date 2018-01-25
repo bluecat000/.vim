@@ -21,8 +21,7 @@ Plugin 'The-NERD-tree'
 Plugin 'The-NERD-Commenter'
 Plugin 'node.js'
 Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'mhartington/oceanic-next'
-Plugin 'othree/yajs.vim'
+Plugin 'pangloss/vim-javascript'
 Plugin 'chemzqm/vim-jsx-improve'
 Plugin 'Yggdroot/indentLine'
 Plugin 'tmhedberg/SimpylFold'
@@ -33,6 +32,8 @@ Plugin 'Auto-Pairs'
 "Plugin 'vim-syntastic/syntastic'
 "Plugin 'airblade/vim-gitgutter'
 "Plugin 'Shutnik/jshint2.vim'
+" Plugin 'mhartington/oceanic-next'
+" Plugin 'othree/yajs.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -68,8 +69,8 @@ set noswapfile "不生成swp文件
 au GuiEnter * set t_vb= "关闭闪烁报错
 set completeopt=longest,menu "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 set foldmethod=indent "缩进折叠
-au BufWinLeave {*.*,.*,_vimrc} silent mkview  " 保存文件的折叠状态
-au BufRead {*.*,.*,_vimrc} silent loadview    " 恢复文件的折叠状态
+" au BufWinLeave {*.*,.*,_vimrc} silent mkview  " 保存文件的折叠状态
+" au BufRead {*.*,.*,_vimrc} silent loadview    " 恢复文件的折叠状态
 nnoremap <space> za             " 用空格来切换折叠状态
 set foldlevel=99 "折叠数
 set iskeyword=@,48-57,_,192-255,-,#,^. " 单词位移时候指定是否为单词
@@ -127,7 +128,7 @@ let g:html_exclude_tags = ['html', 'style', 'script', 'body'] "html5插件：不
 map <F7> :TlistToggle<CR>
 let g:Tlist_Use_Right_Window=1
 
-let g:used_javascript_libs = 'jquery,vue' "js库高亮
+let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
 
 " ctrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
@@ -199,3 +200,14 @@ if has("gui_running")
 endif
 
 "let g:AutoPairs={}
+
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
+set conceallevel=1
+
