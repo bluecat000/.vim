@@ -9,26 +9,28 @@ Plugin 'emmet.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'php.vim'
 Plugin 'othree/html5.vim'
 Plugin 'gorodinskiy/vim-coloresque.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'godlygeek/tabular'
-Plugin 'suan/vim-instant-markdown'
 Plugin 'The-NERD-tree'
 Plugin 'The-NERD-Commenter'
-Plugin 'node.js'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'chemzqm/vim-jsx-improve'
 Plugin 'Yggdroot/indentLine'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'dkprice/vim-easygrep'
 Plugin 'ternjs/tern_for_vim' 
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'Auto-Pairs'
+" Plugin 'Auto-Pairs'
+" Plugin 'php.vim'
+" Plugin 'node.js'
+" Plugin 'suan/vim-instant-markdown'
+" Plugin 'dkprice/vim-easygrep'
+" Plugin 'tmhedberg/SimpylFold'
+" Plugin 'airblade/vim-gitgutter'
+" Plugin 'tpope/vim-fugitive'
 "Plugin 'vim-syntastic/syntastic'
 "Plugin 'airblade/vim-gitgutter'
 "Plugin 'Shutnik/jshint2.vim'
@@ -38,7 +40,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 "常规配置
-set shortmess=atI "启动不出现提示语
+" set shortmess=atI "启动不出现提示语
 set encoding=utf-8
 set t_Co=256  
 set runtimepath+=~/.vim/ "设置运行时目录(针对于UltiSnips)
@@ -74,8 +76,6 @@ set foldmethod=indent "缩进折叠
 nnoremap <space> za             " 用空格来切换折叠状态
 set foldlevel=99 "折叠数
 set iskeyword=@,48-57,_,192-255,-,#,^. " 单词位移时候指定是否为单词
-set cursorcolumn "高亮显示光标
-set cursorline "高亮显示光标
 
 if (has("termguicolors"))
   set termguicolors
@@ -183,8 +183,6 @@ elseif has('unix')
   "let g:airline_symbols.linenr   = 'LN:'
   "let g:airline_symbols.maxlinenr = ' COL'
   "cd work/
-  Plugin 'airblade/vim-gitgutter'
-  Plugin 'tpope/vim-fugitive'
 endif
 
 "关闭菜单栏
@@ -197,17 +195,6 @@ if has("gui_running")
   set showtabline=0 
   " colorscheme OceanicNext
   " let g:airline_theme="solarized" 
+  set cursorcolumn "高亮显示光标
+  set cursorline "高亮显示光标
 endif
-
-"let g:AutoPairs={}
-
-" vim-javascript
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-let g:javascript_plugin_flow = 1
-augroup javascript_folding
-    au!
-    au FileType javascript setlocal foldmethod=syntax
-augroup END
-set conceallevel=1
-
