@@ -185,6 +185,10 @@ elseif has('unix')
   "cd work/
 endif
 
+if has("nvim")
+  color neosolarized
+endif
+
 "关闭菜单栏
 if has("gui_running")
   set guioptions-=m 
