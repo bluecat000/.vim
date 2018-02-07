@@ -1,5 +1,5 @@
 # myVim
-该vim配置面向前端,linux window 通用
+该vim配置面向前端,在terminal下运行最佳
 
 ## 截图
 ![截图预览](http://p1.bqimg.com/567571/9933fca5e58de768.jpg)

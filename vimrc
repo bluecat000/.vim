@@ -23,16 +23,15 @@ Plugin 'chemzqm/vim-jsx-improve'
 Plugin 'Yggdroot/indentLine'
 Plugin 'ternjs/tern_for_vim' 
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 " Plugin 'Auto-Pairs'
 " Plugin 'php.vim'
 " Plugin 'node.js'
 " Plugin 'suan/vim-instant-markdown'
 " Plugin 'dkprice/vim-easygrep'
 " Plugin 'tmhedberg/SimpylFold'
-" Plugin 'airblade/vim-gitgutter'
-" Plugin 'tpope/vim-fugitive'
 "Plugin 'vim-syntastic/syntastic'
-"Plugin 'airblade/vim-gitgutter'
 "Plugin 'Shutnik/jshint2.vim'
 " Plugin 'mhartington/oceanic-next'
 " Plugin 'othree/yajs.vim'
@@ -77,11 +76,8 @@ nnoremap <space> za             " 用空格来切换折叠状态
 set foldlevel=99 "折叠数
 set iskeyword=@,48-57,_,192-255,-,#,^. " 单词位移时候指定是否为单词
 
-if (has("termguicolors"))
-  set termguicolors
-endif
+color neosolarized
 set background=dark
-color solarized
 
 "代码提示
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
@@ -149,56 +145,3 @@ nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>r :YcmCompleter GoToReferences<CR>
 
 let g:NERDSpaceDelims=1 "注释时候加上空格
-
-"键盘快捷键
-"判断操作系统
-if has('win32')
-  "windows 透明设置
-  " if executable("vimtweak.dll") "默认打开透明
-  " 	autocmd guienter * call libcallnr("vimtweak","SetAlpha",226) 
-  " endif 
-  map <leader>W :call libcallnr("vimtweak.dll","SetAlpha",255)<cr>
-  map <leader>w :call libcallnr("vimtweak.dll","SetAlpha",226)<cr>
-  "set guifont=yaHei_consolas_hybrid:h12
-  "set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI:qDRAFT
-  set guifont=Powerline_Consolas:h12:cANSI
-  set guifontwide=YaHei_Consolas_Hybrid:h12
-  autocmd GUIEnter * simalt ~x "全屏
-  "解决菜单乱码 (window)
-  source $VIMRUNTIME/delmenu.vim
-  source $VIMRUNTIME/menu.vim
-  language messages zh_CN.utf-8
-  "进入项目目录
-  "cd e:\work\appweb
-  "cd e:\work\admin-manager
-  cd e:\work
-elseif has('unix')
-  "set guifont=mono\ 11
-  "let g:airline_left_sep         = ''
-  "let g:airline_left_alt_sep     = ''
-  "let g:airline_right_sep        = ''
-  "let g:airline_right_alt_sep    = ''
-  "let g:airline_symbols.branch   = 'BR:'
-  "let g:airline_symbols.readonly = 'Lk'
-  "let g:airline_symbols.linenr   = 'LN:'
-  "let g:airline_symbols.maxlinenr = ' COL'
-  "cd work/
-endif
-
-if has("nvim")
-  color neosolarized
-endif
-
-"关闭菜单栏
-if has("gui_running")
-  set guioptions-=m 
-  set guioptions-=T 
-  set guioptions-=L 
-  set guioptions-=r 
-  set guioptions-=b 
-  set showtabline=0 
-  " colorscheme OceanicNext
-  " let g:airline_theme="solarized" 
-  set cursorcolumn "高亮显示光标
-  set cursorline "高亮显示光标
-endif
