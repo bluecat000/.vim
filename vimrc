@@ -25,15 +25,13 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'w0rp/ale'
 " Plugin 'Auto-Pairs'
 " Plugin 'php.vim'
 " Plugin 'node.js'
 " Plugin 'suan/vim-instant-markdown'
 " Plugin 'dkprice/vim-easygrep'
 " Plugin 'tmhedberg/SimpylFold'
-"Plugin 'vim-syntastic/syntastic'
-"Plugin 'Shutnik/jshint2.vim'
-" Plugin 'mhartington/oceanic-next'
 " Plugin 'othree/yajs.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -129,8 +127,12 @@ let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
 " ctrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
-"eslint
-"let g:syntastic_javascript_checkers = ['eslint']
+"syntanstic
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_always_populate_loc_list = 1
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
 
 "ycm
 let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
