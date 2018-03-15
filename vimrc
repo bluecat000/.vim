@@ -97,8 +97,8 @@ if !exists('g:airline_symbols')
   let g:airline_symbols={}  
 endif
 let g:airline#extensions#tabline#buffer_nr_show = 1
-nnoremap <C-TAB> :bn<CR>
-nnoremap <S-TAB> :bp<CR>
+nnoremap <leader>np :bn<CR>
+nnoremap <leader>pp :bp<CR>
 
 "UltiSnips
 let g:UltiSnipsExpandTrigger       = "<tab>"
@@ -129,14 +129,14 @@ let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
 " ctrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
-"syntanstic
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_always_populate_loc_list = 1
+" ale 语法检测
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
 
 "ycm
+let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<s-tab>', '<Up>']
 let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 "let g:ycm_min_num_of_chars_for_completion=1 "第一个字符补全
