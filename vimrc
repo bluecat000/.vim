@@ -135,8 +135,8 @@ let g:ale_linters = {
 \}
 
 "ycm
-let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<s-tab>', '<Up>']
+" let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<s-tab>', '<Up>']
 let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 "let g:ycm_min_num_of_chars_for_completion=1 "第一个字符补全
