@@ -97,7 +97,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols={}  
 endif
 let g:airline#extensions#tabline#buffer_nr_show = 1
-nnoremap <leader>np :bn<CR>
+nnoremap <leader>nn :bn<CR>
 nnoremap <leader>pp :bp<CR>
 
 "UltiSnips
