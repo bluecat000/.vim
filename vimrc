@@ -76,8 +76,9 @@ nnoremap <space> za             " 用空格来切换折叠状态
 set foldlevel=99 "折叠数
 set iskeyword=@,48-57,_,192-255,-,#,^. " 单词位移时候指定是否为单词
 
-color neosolarized
+set termguicolors
 set background=dark
+color neosolarized
 
 "代码提示
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
@@ -131,8 +132,8 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " ale 语法检测
 let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
+      \   'javascript': ['eslint'],
+      \}
 
 "ycm
 " let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
