@@ -98,8 +98,6 @@ if !exists('g:airline_symbols')
   let g:airline_symbols={}  
 endif
 let g:airline#extensions#tabline#buffer_nr_show = 1
-nnoremap <leader>nn :bn<CR>
-nnoremap <leader>pp :bp<CR>
 
 "UltiSnips
 let g:UltiSnipsExpandTrigger       = "<tab>"
