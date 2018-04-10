@@ -1,3 +1,22 @@
 snippet = "=>"
 '${1}' => '${2}'
 endsnippet
+snippet dis "$this->display()" 
+$this->display('dist/' . CONTROLLER_NAME . '/' . ACTION_NAME);
+endsnippet
+snippet ctl "thinkphp controller"
+namespace Move\Controller;
+use Think\Model;
+
+class AjaxController extends CommentController
+{
+	public function index() {
+		$1
+	}
+
+}
+endsnippet
+snippet php "<?php"
+<?php
+
+endsnippet
