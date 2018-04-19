@@ -75,6 +75,7 @@ set foldmethod=indent "缩进折叠
 nnoremap <space> za             " 用空格来切换折叠状态
 set foldlevel=99 "折叠数
 set iskeyword=@,48-57,_,192-255,-,#,^. " 单词位移时候指定是否为单词
+set timeoutlen=1000 ttimeoutlen=0 " 间隔 调整iterm2很慢的问题
 
 if !has('mac')
 set termguicolors
