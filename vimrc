@@ -22,7 +22,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'chemzqm/vim-jsx-improve'
 Plugin 'Yggdroot/indentLine'
 Plugin 'ternjs/tern_for_vim' 
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'w0rp/ale'
@@ -79,6 +79,7 @@ set timeoutlen=1000 ttimeoutlen=0 " 间隔 调整iterm2很慢的问题
 
 if !has('mac')
 set termguicolors
+let g:python_host_prog = '/usr/local/bin/python'
 endif
 set background=dark
 color neosolarized
@@ -137,8 +138,6 @@ let g:ale_linters = {
       \}
 
 "ycm
-" let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<s-tab>', '<Up>']
 let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 "let g:ycm_min_num_of_chars_for_completion=1 "第一个字符补全
