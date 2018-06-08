@@ -15,8 +15,6 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'godlygeek/tabular'
 Plugin 'The-NERD-Commenter'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'pangloss/vim-javascript'
 Plugin 'chemzqm/vim-jsx-improve'
 Plugin 'ternjs/tern_for_vim' 
 Plugin 'Valloric/YouCompleteMe'
@@ -27,6 +25,8 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'Auto-Pairs'
 Plugin 'posva/vim-vue'
+" Plugin 'othree/javascript-libraries-syntax.vim'
+" Plugin 'pangloss/vim-javascript'
 " Plugin 'The-NERD-tree'
 " Plugin 'gorodinskiy/vim-coloresque.git'
 " Plugin 'Yggdroot/indentLine'
@@ -80,7 +80,12 @@ set timeoutlen=1000 ttimeoutlen=0 " 间隔 调整iterm2很慢的问题
 
 if !has('mac')
 set termguicolors
+" python set
+let g:loaded_python_provider = 1
+let g:python_host_skip_check=1
 let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_skip_check=1
+let g:python3_host_prog = '/usr/local/bin/python3'
 endif
 set background=dark
 color neosolarized
@@ -95,8 +100,9 @@ autocmd BufRead,BufNewFile *.wxml set filetype=html " 小程序文件
 " autocmd BufRead,BufNewFile *.vue set filetype=html "设置vue文件模式为html
 " autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 " let g:vue_disable_pre_processors=1
-let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
-let g:html_exclude_tags = ['html', 'style', 'script', 'body'] "html5插件：不需要换行的标签
+" let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
+autocmd FileType vue syntax sync fromstart
+let g:html_exclude_tags = ['html', 'style', 'script'] "html5插件：不需要换行的标签
 
 "PLUGINS
 "airline
