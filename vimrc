@@ -10,7 +10,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'othree/html5.vim'
-Plugin 'gorodinskiy/vim-coloresque.git'
+" Plugin 'gorodinskiy/vim-coloresque.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -22,13 +22,14 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'chemzqm/vim-jsx-improve'
 Plugin 'Yggdroot/indentLine'
 Plugin 'ternjs/tern_for_vim' 
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'w0rp/ale'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'mileszs/ack.vim'
-" Plugin 'Auto-Pairs'
+Plugin 'Auto-Pairs'
+Plugin 'posva/vim-vue'
 " Plugin 'php.vim'
 " Plugin 'node.js'
 " Plugin 'suan/vim-instant-markdown'
@@ -88,9 +89,10 @@ color neosolarized
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"tern_for_vim
-autocmd FileType javascript setlocal omnifunc=tern#Complete
-autocmd BufRead,BufNewFile *.vue set filetype=html "设置vue文件模式为html
+autocmd FileType javascript setlocal omnifunc=tern#Complete "tern_for_vim
+autocmd BufRead,BufNewFile *.wxss set filetype=css " 小程序文件
+autocmd BufRead,BufNewFile *.wxml set filetype=html " 小程序文件
+" autocmd BufRead,BufNewFile *.vue set filetype=html "设置vue文件模式为html
 
 "airline
 set laststatus=2  
@@ -141,10 +143,17 @@ let g:ale_linters = {
 let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 "let g:ycm_min_num_of_chars_for_completion=1 "第一个字符补全
-set pumheight=10 "补全候选词高度"
+set pumheight=10 "补全候选词高度
+let g:ycm_auto_trigger=0 "默认关闭
+"关闭
+nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
+"开启
+nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>
 let g:ycm_semantic_triggers = {
       \   'css': [ 're!^\s{2}', 're!:\s+' ],
+      \   'sass': [ 're!^\s+', 're!:\s+' ],
       \   'scss': [ 're!^\s+', 're!:\s+' ],
+      \   'less': [ 're!^\s+', 're!:\s+' ],
       \ }
 nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>r :YcmCompleter GoToReferences<CR>
