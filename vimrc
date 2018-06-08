@@ -10,17 +10,14 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'othree/html5.vim'
-" Plugin 'gorodinskiy/vim-coloresque.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'godlygeek/tabular'
-Plugin 'The-NERD-tree'
 Plugin 'The-NERD-Commenter'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'chemzqm/vim-jsx-improve'
-Plugin 'Yggdroot/indentLine'
 Plugin 'ternjs/tern_for_vim' 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
@@ -30,6 +27,9 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'Auto-Pairs'
 Plugin 'posva/vim-vue'
+" Plugin 'The-NERD-tree'
+" Plugin 'gorodinskiy/vim-coloresque.git'
+" Plugin 'Yggdroot/indentLine'
 " Plugin 'php.vim'
 " Plugin 'node.js'
 " Plugin 'suan/vim-instant-markdown'
@@ -93,12 +93,17 @@ autocmd FileType javascript setlocal omnifunc=tern#Complete "tern_for_vim
 autocmd BufRead,BufNewFile *.wxss set filetype=css " 小程序文件
 autocmd BufRead,BufNewFile *.wxml set filetype=html " 小程序文件
 " autocmd BufRead,BufNewFile *.vue set filetype=html "设置vue文件模式为html
+" autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+" let g:vue_disable_pre_processors=1
+let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
+let g:html_exclude_tags = ['html', 'style', 'script', 'body'] "html5插件：不需要换行的标签
 
+"PLUGINS
 "airline
 set laststatus=2  
 set lazyredraw  
 let g:airline#extensions#tabline#enabled = 1 "buffers
-let g:airline_theme="solarized" 
+let g:airline_theme="base16_atelierdune" 
 let g:airline_powerline_fonts=1  
 if !exists('g:airline_symbols')  
   let g:airline_symbols={}  
@@ -123,14 +128,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let NERDTreeIgnore=['\~$', 'node_modules'] " 不显示这些文件
 let NERDTreeMinimalUI=1 " 不显示项目树上额外的信息，例如帮助、提示什么的
 
-let g:html_exclude_tags = ['html', 'style', 'script', 'body'] "html5插件：不需要换行的标签
-
-" taglist
-map <F7> :TlistToggle<CR>
-let g:Tlist_Use_Right_Window=1
-
-let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
-
 " ctrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
@@ -144,7 +141,10 @@ let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 "let g:ycm_min_num_of_chars_for_completion=1 "第一个字符补全
 set pumheight=10 "补全候选词高度
+let g:ycm_max_num_candidates = 10
+let g:ycm_max_num_identifier_candidates = 5
 let g:ycm_auto_trigger=0 "默认关闭
+let g:ycm_key_invoke_completion = '<C-\>'
 "关闭
 nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
 "开启
