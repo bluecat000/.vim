@@ -125,6 +125,10 @@ let g:UltiSnipsEditSplit           = "vertical"
 "%匹配html标签
 runtime macros/matchit.vim  
 
+" nerdcommenter
+" nnoremap <C-/> :call NERDComment(0,"toggle")<CR>
+" vnoremap </>/ :call NERDComment(0,"toggle")<CR>
+
 "markdown实时刷新
 let g:instant_markdown_slow = 1
 
@@ -146,9 +150,9 @@ let g:ale_linters = {
 let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 "let g:ycm_min_num_of_chars_for_completion=1 "第一个字符补全
-set pumheight=10 "补全候选词高度
-let g:ycm_max_num_candidates = 10
-let g:ycm_max_num_identifier_candidates = 5
+" let g:ycm_max_num_candidates = 10
+" let g:ycm_max_num_identifier_candidates = 5
+set pumheight=5 "补全候选词高度
 let g:ycm_auto_trigger=0 "默认关闭
 let g:ycm_key_invoke_completion = '<C-\>'
 "关闭
