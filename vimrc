@@ -6,25 +6,24 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'emmet.vim'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'othree/html5.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'chemzqm/vim-jsx-improve'
+Plugin 'posva/vim-vue'
 Plugin 'kien/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'godlygeek/tabular'
-Plugin 'The-NERD-Commenter'
-Plugin 'chemzqm/vim-jsx-improve'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'ternjs/tern_for_vim' 
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'w0rp/ale'
-Plugin 'leafgarland/typescript-vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'Auto-Pairs'
-Plugin 'posva/vim-vue'
+Plugin 'Valloric/YouCompleteMe'
 " Plugin 'othree/javascript-libraries-syntax.vim'
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'The-NERD-tree'
@@ -45,6 +44,7 @@ set encoding=utf-8
 set t_Co=256  
 set runtimepath+=~/.vim/ "设置运行时目录(针对于UltiSnips)
 set number
+set relativenumber
 syntax on
 syntax enable
 set tabstop=2
@@ -65,6 +65,8 @@ set fileencodings=utf-8,gbk
 set backspace=indent,eol,start
 set wildignore+=node_modules/*,.git/* " 设置vimgrep搜索忽略项
 "set guicursor=n-v-c:ver1,i-ci:ver1 "改变游标样式
+set cursorcolumn
+set cursorline
 set hidden "切换文件时保存撤销步骤
 set vb t_vb= "关闭声音
 set noswapfile "不生成swp文件
@@ -78,15 +80,13 @@ set foldlevel=99 "折叠数
 set iskeyword=@,48-57,_,192-255,-,#,^. " 单词位移时候指定是否为单词
 set timeoutlen=1000 ttimeoutlen=0 " 间隔 调整iterm2很慢的问题
 
-if !has('mac')
-set termguicolors
+" set termguicolors
 " python set
 let g:loaded_python_provider = 1
-let g:python_host_skip_check=1
-let g:python_host_prog = '/usr/local/bin/python'
-let g:python3_host_skip_check=1
-let g:python3_host_prog = '/usr/local/bin/python3'
-endif
+" let g:python_host_skip_check=1
+" let g:python_host_prog = '/usr/local/bin/python'
+" let g:python3_host_skip_check=1
+" let g:python3_host_prog = '/usr/local/bin/python3'
 set background=dark
 color neosolarized
 
@@ -97,11 +97,13 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=tern#Complete "tern_for_vim
 autocmd BufRead,BufNewFile *.wxss set filetype=css " 小程序文件
 autocmd BufRead,BufNewFile *.wxml set filetype=html " 小程序文件
-" autocmd BufRead,BufNewFile *.vue set filetype=html "设置vue文件模式为html
+autocmd BufRead,BufNewFile *.vue set filetype=html "设置vue文件模式为html
+autocmd BufRead,BufNewFile *.html setlocal filetype=html.javascript.css
 " autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 " let g:vue_disable_pre_processors=1
 " let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
 autocmd FileType vue syntax sync fromstart
+autocmd FileType html syntax sync fromstart
 let g:html_exclude_tags = ['html', 'style', 'script'] "html5插件：不需要换行的标签
 
 "PLUGINS
@@ -152,9 +154,10 @@ let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 "let g:ycm_min_num_of_chars_for_completion=1 "第一个字符补全
 " let g:ycm_max_num_candidates = 10
 " let g:ycm_max_num_identifier_candidates = 5
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
 set pumheight=5 "补全候选词高度
-let g:ycm_auto_trigger=0 "默认关闭
-let g:ycm_key_invoke_completion = '<C-\>'
+" let g:ycm_auto_trigger=0 "默认关闭
+" let g:ycm_key_invoke_completion = '<C-\>'
 "关闭
 nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
 "开启
