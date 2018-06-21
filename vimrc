@@ -8,6 +8,8 @@ Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'emmet.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+
 Plugin 'othree/html5.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'chemzqm/vim-jsx-improve'
@@ -172,3 +174,10 @@ nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>r :YcmCompleter GoToReferences<CR>
 
 let g:NERDSpaceDelims=1 "注释时候加上空格
+
+" gitgutter
+let g:gitgutter_sign_added = '|'
+let g:gitgutter_sign_modified = '|'
+let g:gitgutter_sign_removed = '|'
+let g:gitgutter_sign_removed_first_line = '|'
+let g:gitgutter_sign_modified_removed = '|'
