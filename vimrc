@@ -8,12 +8,10 @@ Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'emmet.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
-
 Plugin 'othree/html5.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'chemzqm/vim-jsx-improve'
-Plugin 'posva/vim-vue'
+" Plugin 'posva/vim-vue'
 Plugin 'kien/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -25,7 +23,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'w0rp/ale'
 Plugin 'mileszs/ack.vim'
 Plugin 'Auto-Pairs'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'carlitux/deoplete-ternjs'
 " Plugin 'othree/javascript-libraries-syntax.vim'
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'The-NERD-tree'
@@ -84,7 +84,6 @@ set timeoutlen=1000 ttimeoutlen=0 " 间隔 调整iterm2很慢的问题
 
 " set termguicolors
 " python set
-let g:loaded_python_provider = 1
 " let g:python_host_skip_check=1
 " let g:python_host_prog = '/usr/local/bin/python'
 " let g:python3_host_skip_check=1
@@ -151,12 +150,12 @@ let g:ale_linters = {
       \}
 
 "ycm
-let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+" let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 "let g:ycm_min_num_of_chars_for_completion=1 "第一个字符补全
 " let g:ycm_max_num_candidates = 10
 " let g:ycm_max_num_identifier_candidates = 5
-inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+" inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
 set pumheight=5 "补全候选词高度
 " let g:ycm_auto_trigger=0 "默认关闭
 " let g:ycm_key_invoke_completion = '<C-\>'
@@ -175,9 +174,52 @@ nnoremap <leader>r :YcmCompleter GoToReferences<CR>
 
 let g:NERDSpaceDelims=1 "注释时候加上空格
 
+" jump to def
+nnoremap <leader>d :TernDef<CR>
+nnoremap <leader>r :TernRefs<CR>
+nnoremap <leader>h :TernDoc<CR>
+
+
 " gitgutter
 let g:gitgutter_sign_added = '|'
 let g:gitgutter_sign_modified = '|'
 let g:gitgutter_sign_removed = '|'
 let g:gitgutter_sign_removed_first_line = '|'
 let g:gitgutter_sign_modified_removed = '|'
+
+set runtimepath+=~/.vim/bundle/deoplete.nvim/
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#ternjs#types = 1
+let g:deoplete#sources#ternjs#depths = 1
+let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#filter = 0
+let g:deoplete#sources#ternjs#case_insensitive = 1
+let g:deoplete#sources#ternjs#guess = 0
+let g:deoplete#sources#ternjs#sort = 0
+let g:deoplete#sources#ternjs#expand_word_forward = 0
+let g:deoplete#sources#ternjs#omit_object_prototype = 0
+let g:deoplete#sources#ternjs#include_keywords = 1
+let g:deoplete#sources#ternjs#in_literal = 0
+let g:deoplete#sources#ternjs#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ 'vue',
+                \ 'typescript',
+                \ 'html'
+                \ ]
+
+"vue
+" function! s:setFileType()
+  " if searchpair('<script', '', '</script>', 'bnW')
+    " set ft=javascript
+  " elseif searchpair('<style', '', '</style>', 'bnW')
+    " set ft=css
+  " else
+    " set ft=html
+  " endif
+" endfunction
+
+" augroup vueBinds
+  " au!
+  " au CursorMoved,CursorMovedI *.vue call s:setFileType()
+" augroup END
