@@ -11,7 +11,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'othree/html5.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'chemzqm/vim-jsx-improve'
-" Plugin 'posva/vim-vue'
+Plugin 'posva/vim-vue'
 Plugin 'kien/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -23,12 +23,14 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'w0rp/ale'
 Plugin 'mileszs/ack.vim'
 Plugin 'Auto-Pairs'
-" Plugin 'Valloric/YouCompleteMe'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'carlitux/deoplete-ternjs'
+Plugin 'The-NERD-tree'
+Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Shougo/deoplete.nvim'
+" Plugin 'carlitux/deoplete-ternjs'
+" Plugin 'roxma/nvim-yarp' "vim required
+" Plugin 'roxma/vim-hug-neovim-rpc'
 " Plugin 'othree/javascript-libraries-syntax.vim'
 " Plugin 'pangloss/vim-javascript'
-" Plugin 'The-NERD-tree'
 " Plugin 'gorodinskiy/vim-coloresque.git'
 " Plugin 'Yggdroot/indentLine'
 " Plugin 'php.vim'
@@ -102,7 +104,7 @@ autocmd BufRead,BufNewFile *.vue set filetype=html "设置vue文件模式为html
 autocmd BufRead,BufNewFile *.html setlocal filetype=html.javascript.css
 " autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 " let g:vue_disable_pre_processors=1
-" let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
+let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
 autocmd FileType vue syntax sync fromstart
 autocmd FileType html syntax sync fromstart
 let g:html_exclude_tags = ['html', 'style', 'script'] "html5插件：不需要换行的标签
@@ -129,8 +131,26 @@ let g:UltiSnipsEditSplit           = "vertical"
 runtime macros/matchit.vim  
 
 " nerdcommenter
-" nnoremap <C-/> :call NERDComment(0,"toggle")<CR>
-" vnoremap </>/ :call NERDComment(0,"toggle")<CR>
+let g:NERDSpaceDelims=1 "注释时候加上空格
+let g:ft = ''
+function! NERDCommenter_before()
+  if &ft == 'vue'
+    let g:ft = 'vue'
+    let stack = synstack(line('.'), col('.'))
+    if len(stack) > 0
+      let syn = synIDattr((stack)[0], 'name')
+      if len(syn) > 0
+        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+      endif
+    endif
+  endif
+endfunction
+function! NERDCommenter_after()
+  if g:ft == 'vue'
+    setf vue
+    let g:ft = ''
+  endif
+endfunction
 
 "markdown实时刷新
 let g:instant_markdown_slow = 1
@@ -150,8 +170,8 @@ let g:ale_linters = {
       \}
 
 "ycm
-" let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 "let g:ycm_min_num_of_chars_for_completion=1 "第一个字符补全
 " let g:ycm_max_num_candidates = 10
 " let g:ycm_max_num_identifier_candidates = 5
@@ -172,7 +192,6 @@ let g:ycm_semantic_triggers = {
 nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>r :YcmCompleter GoToReferences<CR>
 
-let g:NERDSpaceDelims=1 "注释时候加上空格
 
 " jump to def
 nnoremap <leader>d :TernDef<CR>
@@ -181,32 +200,32 @@ nnoremap <leader>h :TernDoc<CR>
 
 
 " gitgutter
-let g:gitgutter_sign_added = '|'
-let g:gitgutter_sign_modified = '|'
-let g:gitgutter_sign_removed = '|'
-let g:gitgutter_sign_removed_first_line = '|'
-let g:gitgutter_sign_modified_removed = '|'
+" let g:gitgutter_sign_added = '|'
+" let g:gitgutter_sign_modified = '|'
+" let g:gitgutter_sign_removed = '|'
+" let g:gitgutter_sign_removed_first_line = '|'
+" let g:gitgutter_sign_modified_removed = '|'
 
-set runtimepath+=~/.vim/bundle/deoplete.nvim/
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#ternjs#types = 1
-let g:deoplete#sources#ternjs#depths = 1
-let g:deoplete#sources#ternjs#docs = 1
-let g:deoplete#sources#ternjs#filter = 0
-let g:deoplete#sources#ternjs#case_insensitive = 1
-let g:deoplete#sources#ternjs#guess = 0
-let g:deoplete#sources#ternjs#sort = 0
-let g:deoplete#sources#ternjs#expand_word_forward = 0
-let g:deoplete#sources#ternjs#omit_object_prototype = 0
-let g:deoplete#sources#ternjs#include_keywords = 1
-let g:deoplete#sources#ternjs#in_literal = 0
-let g:deoplete#sources#ternjs#filetypes = [
-                \ 'jsx',
-                \ 'javascript.jsx',
-                \ 'vue',
-                \ 'typescript',
-                \ 'html'
-                \ ]
+" set runtimepath+=~/.vim/bundle/deoplete.nvim/
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#sources#ternjs#types = 1
+" let g:deoplete#sources#ternjs#depths = 1
+" let g:deoplete#sources#ternjs#docs = 1
+" let g:deoplete#sources#ternjs#filter = 0
+" let g:deoplete#sources#ternjs#case_insensitive = 1
+" let g:deoplete#sources#ternjs#guess = 0
+" let g:deoplete#sources#ternjs#sort = 0
+" let g:deoplete#sources#ternjs#expand_word_forward = 0
+" let g:deoplete#sources#ternjs#omit_object_prototype = 0
+" let g:deoplete#sources#ternjs#include_keywords = 1
+" let g:deoplete#sources#ternjs#in_literal = 0
+" let g:deoplete#sources#ternjs#filetypes = [
+                " \ 'jsx',
+                " \ 'javascript.jsx',
+                " \ 'vue',
+                " \ 'typescript',
+                " \ 'html'
+                " \ ]
 
 "vue
 " function! s:setFileType()
@@ -221,5 +240,5 @@ let g:deoplete#sources#ternjs#filetypes = [
 
 " augroup vueBinds
   " au!
-  " au CursorMoved,CursorMovedI *.vue call s:setFileType()
+  " au InsertEnter *.vue call s:setFileType()
 " augroup END
