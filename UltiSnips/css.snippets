@@ -20,8 +20,14 @@ endsnippet
 snippet bgc
 background-color: ${1:color};
 endsnippet
-snippet bds
+snippet bgs
 background-size: ${1:cover} ${2};
+endsnippet
+snippet bgp
+background-position: ${1:top} ${2:left};
+endsnippet
+snippet bgr
+background-repeat: no-repeat;
 endsnippet
 snippet brd
 border-radius: ${1:0px};
@@ -43,10 +49,10 @@ endsnippet
 snippet bdr
 box-direction: ${1:column};
 endsnippet
-snippet dsib
+snippet dpib
 display: ${1:inline-block};
 endsnippet
-snippet dsf
+snippet dpf
 display: flex;
 ${1}
 endsnippet
@@ -56,3 +62,15 @@ endsnippet
 snippet c
 color: ${1:#fff};
 endsnippet
+snippet line 
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+endsnippet
+snippet mline
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
+overflow: hidden;
+endsnippet
+
