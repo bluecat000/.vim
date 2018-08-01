@@ -27,24 +27,22 @@ snippet bgp
 background-position: ${1:top} ${2:left};
 endsnippet
 snippet bgr
-background-repeat: no-repeat;
+background-repeat: no-repeat;$1
 endsnippet
-snippet brd
+snippet bdrd
 border-radius: ${1:0px};
 endsnippet
 snippet jc
 justify-content: ${1:value};
 endsnippet
 snippet jcc
-justify-content: center;
-${1}
+justify-content: center;$1
 endsnippet
 snippet ai
 align-items: ${1:vlaue};
 endsnippet
 snippet aic
-align-items: center;
-${1}
+align-items: center;$1
 endsnippet
 snippet bdr
 box-direction: ${1:column};
@@ -53,8 +51,7 @@ snippet dpib
 display: ${1:inline-block};
 endsnippet
 snippet dpf
-display: flex;
-${1}
+display: flex;$1
 endsnippet
 snippet fs
 font-size: ${1:12px};
@@ -65,12 +62,14 @@ endsnippet
 snippet line 
 white-space:nowrap;
 overflow:hidden;
-text-overflow:ellipsis;
+text-overflow:ellipsis;$1
 endsnippet
 snippet mline
 display: -webkit-box;
 -webkit-box-orient: vertical;
 -webkit-line-clamp: 3;
-overflow: hidden;
+overflow: hidden;$1
 endsnippet
-
+snippet fdr
+flex-direction: ${1:column};$2
+endsnippet
