@@ -22,11 +22,11 @@ Plugin 'w0rp/ale'
 Plugin 'mileszs/ack.vim'
 Plugin 'Auto-Pairs'
 Plugin 'The-NERD-tree'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'carlitux/deoplete-ternjs'
+" Plugin 'Valloric/YouCompleteMe'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'Shougo/deoplete.nvim'
-" Plugin 'carlitux/deoplete-ternjs'
 " Plugin 'roxma/nvim-yarp' "vim required
 " Plugin 'roxma/vim-hug-neovim-rpc'
 " Plugin 'othree/javascript-libraries-syntax.vim'
@@ -207,45 +207,45 @@ nnoremap <leader>h :TernDoc<CR>
 
 
 " gitgutter
-" let g:gitgutter_sign_added = '|'
-" let g:gitgutter_sign_modified = '|'
-" let g:gitgutter_sign_removed = '|'
-" let g:gitgutter_sign_removed_first_line = '|'
-" let g:gitgutter_sign_modified_removed = '|'
+let g:gitgutter_sign_added = '|'
+let g:gitgutter_sign_modified = '|'
+let g:gitgutter_sign_removed = '|'
+let g:gitgutter_sign_removed_first_line = '|'
+let g:gitgutter_sign_modified_removed = '|'
 
-" set runtimepath+=~/.vim/bundle/deoplete.nvim/
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#sources#ternjs#types = 1
-" let g:deoplete#sources#ternjs#depths = 1
-" let g:deoplete#sources#ternjs#docs = 1
-" let g:deoplete#sources#ternjs#filter = 0
-" let g:deoplete#sources#ternjs#case_insensitive = 1
-" let g:deoplete#sources#ternjs#guess = 0
-" let g:deoplete#sources#ternjs#sort = 0
-" let g:deoplete#sources#ternjs#expand_word_forward = 0
-" let g:deoplete#sources#ternjs#omit_object_prototype = 0
-" let g:deoplete#sources#ternjs#include_keywords = 1
-" let g:deoplete#sources#ternjs#in_literal = 0
-" let g:deoplete#sources#ternjs#filetypes = [
-                " \ 'jsx',
-                " \ 'javascript.jsx',
-                " \ 'vue',
-                " \ 'typescript',
-                " \ 'html'
-                " \ ]
+set runtimepath+=~/.vim/bundle/deoplete.nvim/
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#ternjs#types = 1
+let g:deoplete#sources#ternjs#depths = 1
+let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#filter = 0
+let g:deoplete#sources#ternjs#case_insensitive = 1
+let g:deoplete#sources#ternjs#guess = 0
+let g:deoplete#sources#ternjs#sort = 0
+let g:deoplete#sources#ternjs#expand_word_forward = 0
+let g:deoplete#sources#ternjs#omit_object_prototype = 0
+let g:deoplete#sources#ternjs#include_keywords = 1
+let g:deoplete#sources#ternjs#in_literal = 0
+let g:deoplete#sources#ternjs#filetypes = [
+      \ 'jsx',
+      \ 'javascript.jsx',
+      \ 'vue',
+      \ 'typescript',
+      \ 'html'
+      \ ]
 
 "vue
 " function! s:setFileType()
-  " if searchpair('<script', '', '</script>', 'bnW')
-    " set ft=javascript
-  " elseif searchpair('<style', '', '</style>', 'bnW')
-    " set ft=css
-  " else
-    " set ft=html
-  " endif
+" if searchpair('<script', '', '</script>', 'bnW')
+" set ft=javascript
+" elseif searchpair('<style', '', '</style>', 'bnW')
+" set ft=css
+" else
+" set ft=html
+" endif
 " endfunction
 
 " augroup vueBinds
-  " au!
-  " au InsertEnter *.vue call s:setFileType()
+" au!
+" au InsertEnter *.vue call s:setFileType()
 " augroup END
