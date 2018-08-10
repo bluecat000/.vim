@@ -24,9 +24,10 @@ Plugin 'Auto-Pairs'
 Plugin 'The-NERD-tree'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'carlitux/deoplete-ternjs'
-" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'itchyny/lightline.vim'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'Valloric/YouCompleteMe'
 " Plugin 'roxma/nvim-yarp' "vim required
 " Plugin 'roxma/vim-hug-neovim-rpc'
 " Plugin 'othree/javascript-libraries-syntax.vim'
@@ -120,6 +121,11 @@ let g:html_exclude_tags = ['html', 'style', 'script'] "html5插件：不需要�
   " let g:airline_symbols={}  
 " endif
 " let g:airline#extensions#tabline#buffer_nr_show = 1
+
+" lightline
+" let g:lightline = {
+      " \ 'colorscheme': 'solarized',
+      " \ }
 
 "UltiSnips
 let g:UltiSnipsExpandTrigger       = "<tab>"
@@ -249,3 +255,56 @@ let g:deoplete#sources#ternjs#filetypes = [
 " au!
 " au InsertEnter *.vue call s:setFileType()
 " augroup END
+
+" Function: display errors from Ale in statusline
+function! LinterStatus() abort
+   let l:counts = ale#statusline#Count(bufnr(''))
+   let l:all_errors = l:counts.error + l:counts.style_error
+   let l:all_non_errors = l:counts.total - l:all_errors
+   return l:counts.total == 0 ? '' : printf(
+   \ 'W:%d E:%d',
+   \ l:all_non_errors,
+   \ l:all_errors
+   \)
+endfunction
+set laststatus=2
+set statusline=
+set statusline+=\ %l
+set statusline+=\ %*
+set statusline+=\ ‹‹
+set statusline+=\ %f\ %*
+set statusline+=\ ››
+set statusline+=\ %m
+set statusline+=\ %F
+set statusline+=%=
+set statusline+=\ %{LinterStatus()}
+set statusline+=\ ‹‹
+set statusline+=\ ::
+set statusline+=\ %n
+set statusline+=\ ››\ %*
+
+" statusline2
+" function! GitBranch()
+  " return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+" endfunction
+
+" function! StatuslineGit()
+  " let l:branchname = GitBranch()
+  " return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+" endfunction
+
+" set statusline=
+" set statusline+=%#PmenuSel#
+" set statusline+=%{StatuslineGit()}
+" set statusline+=%#LineNr#
+" set statusline+=\ %f
+" set statusline+=%m\
+" set statusline+=%=
+" set statusline+=%#CursorColumn#
+" set statusline+=\ %y
+" set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+" set statusline+=\[%{&fileformat}\]
+" set statusline+=\ %p%%
+" set statusline+=\ %l:%c
+" set statusline+=\ 
+
