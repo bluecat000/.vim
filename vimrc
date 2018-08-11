@@ -24,7 +24,7 @@ Plugin 'Auto-Pairs'
 Plugin 'The-NERD-tree'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'carlitux/deoplete-ternjs'
-" Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/lightline.vim'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'Valloric/YouCompleteMe'
@@ -101,9 +101,8 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=tern#Complete "tern_for_vim
 autocmd BufRead,BufNewFile *.wxss set filetype=css " 小程序文件
 autocmd BufRead,BufNewFile *.wxml set filetype=html " 小程序文件
-autocmd BufRead,BufNewFile *.vue set filetype=html "设置vue文件模式为html
+autocmd BufRead,BufNewFile *.vue setlocal filetype=html
 autocmd BufRead,BufNewFile *.html setlocal filetype=html.javascript.css
-" autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 " let g:vue_disable_pre_processors=1
 let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
 autocmd FileType vue syntax sync fromstart
@@ -123,9 +122,9 @@ let g:html_exclude_tags = ['html', 'style', 'script'] "html5插件：不需要�
 " let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " lightline
-" let g:lightline = {
-      " \ 'colorscheme': 'solarized',
-      " \ }
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ }
 
 "UltiSnips
 let g:UltiSnipsExpandTrigger       = "<tab>"
@@ -180,30 +179,10 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " ale 语法检测
 let g:ale_linters = {
       \   'javascript': ['eslint'],
+      \   'html': ['eslint'],
       \}
-
-"ycm
-let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
-"let g:ycm_min_num_of_chars_for_completion=1 "第一个字符补全
-" let g:ycm_max_num_candidates = 10
-" let g:ycm_max_num_identifier_candidates = 5
-" inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
-set pumheight=5 "补全候选词高度
-" let g:ycm_auto_trigger=0 "默认关闭
-" let g:ycm_key_invoke_completion = '<C-\>'
-"关闭
-nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
-"开启
-nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR>
-let g:ycm_semantic_triggers = {
-      \   'css': [ 're!^\s{2}', 're!:\s+' ],
-      \   'sass': [ 're!^\s+', 're!:\s+' ],
-      \   'scss': [ 're!^\s+', 're!:\s+' ],
-      \   'less': [ 're!^\s+', 're!:\s+' ],
-      \ }
-nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>r :YcmCompleter GoToReferences<CR>
+nnoremap <leader>aj :ALENext<CR>
+nnoremap <leader>ak :ALEPrevious<CR>
 
 
 " jump to def
@@ -219,7 +198,9 @@ let g:gitgutter_sign_removed = '|'
 let g:gitgutter_sign_removed_first_line = '|'
 let g:gitgutter_sign_modified_removed = '|'
 
+" deoplete
 set runtimepath+=~/.vim/bundle/deoplete.nvim/
+set pumheight=5 "补全候选词高度
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#ternjs#types = 1
 let g:deoplete#sources#ternjs#depths = 1
@@ -257,31 +238,31 @@ let g:deoplete#sources#ternjs#filetypes = [
 " augroup END
 
 " Function: display errors from Ale in statusline
-function! LinterStatus() abort
-   let l:counts = ale#statusline#Count(bufnr(''))
-   let l:all_errors = l:counts.error + l:counts.style_error
-   let l:all_non_errors = l:counts.total - l:all_errors
-   return l:counts.total == 0 ? '' : printf(
-   \ 'W:%d E:%d',
-   \ l:all_non_errors,
-   \ l:all_errors
-   \)
-endfunction
-set laststatus=2
-set statusline=
-set statusline+=\ %l
-set statusline+=\ %*
-set statusline+=\ ‹‹
-set statusline+=\ %f\ %*
-set statusline+=\ ››
-set statusline+=\ %m
-set statusline+=\ %F
-set statusline+=%=
-set statusline+=\ %{LinterStatus()}
-set statusline+=\ ‹‹
-set statusline+=\ ::
-set statusline+=\ %n
-set statusline+=\ ››\ %*
+" function! LinterStatus() abort
+   " let l:counts = ale#statusline#Count(bufnr(''))
+   " let l:all_errors = l:counts.error + l:counts.style_error
+   " let l:all_non_errors = l:counts.total - l:all_errors
+   " return l:counts.total == 0 ? '' : printf(
+   " \ 'W:%d E:%d',
+   " \ l:all_non_errors,
+   " \ l:all_errors
+   " \)
+" endfunction
+" set laststatus=2
+" set statusline=
+" set statusline+=\ %l
+" set statusline+=\ %*
+" set statusline+=\ ‹‹
+" set statusline+=\ %f\ %*
+" set statusline+=\ ››
+" set statusline+=\ %m
+" set statusline+=\ %F
+" set statusline+=%=
+" set statusline+=\ %{LinterStatus()}
+" set statusline+=\ ‹‹
+" set statusline+=\ ::
+" set statusline+=\ %n
+" set statusline+=\ ››\ %*
 
 " statusline2
 " function! GitBranch()
