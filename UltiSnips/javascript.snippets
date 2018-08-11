@@ -1,24 +1,77 @@
 # 自定义snippet文件
 snippet imp 
-import '${1}'
+import '$1'
 endsnippet
 
 snippet impf
-import ${1} from '${2}'
+import $1 from '$2'
 endsnippet
 
 snippet req	
-require('${1}')
+require('$1')
 endsnippet
 	
 snippet arg
-arguments[${1}]${2}
+arguments[$1]$2
 endsnippet
 
 snippet log "console.log"
-console.log(${1})
+console.log($1)
 endsnippet
 
 snippet cl "className"
-className="${1}"
+className="$1"
+endsnippet
+
+snippet ed 
+export default $1
+endsnippet
+
+# 常用方法
+snippet gqs
+function GetQueryString(name) {
+	var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null) return unescape(r[2]);
+	return null;
+}
+endsnippet
+
+snippet cscript
+function createScript(mainUrl, callback) {
+	let oScript = document.createElement('script');
+	oScript.src = mainUrl;
+	if (oScript.readyState) {
+		oScript.onreadystatechange = function() {
+			if (oScript.readyState == 'loaded' || oScript.readyState == 'complete') {
+				oScript.onreadystatechange = null;
+				if (callback) {
+					callback();
+				}
+			}
+		}
+	} else {
+		oScript.onload = function() {
+			if (callback) {
+				callback();
+			}
+		}
+	}
+	document.getElementsByTagName('body').item(0).appendChild(oScript);
+}
+endsnippet
+
+snippet rem
+function (designWidth = 750) {
+	function setRem () {
+		var Html = document.documentElement || document.body
+			Html.style.fontSize = (Html.clientWidth / designWidth * 100).toFixed(2) + 'px'
+	}
+	function setResize() {
+		var windowEvent = 'orientationchange' in window ? 'orientationchange' : 'resize'
+			window.addEventListener(windowEvent, setRem, false)
+			document.addEventListener('DOMContentLoaded', setRem, false);
+	}
+	setResize()
+}
 endsnippet
