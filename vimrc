@@ -123,7 +123,7 @@ let g:html_exclude_tags = ['html', 'style', 'script'] "html5插件：不需要�
 
 " lightline
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'jellybeans',
       \ }
 
 "UltiSnips
