@@ -123,7 +123,7 @@ let g:html_exclude_tags = ['html', 'style', 'script'] "html5插件：不需要�
 
 " lightline
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'default',
       \ }
 
 "UltiSnips
@@ -174,6 +174,7 @@ let g:user_emmet_settings = {
       \}
 
 " ctrlP
+" let g:ctrlp_working_path_mode = 'c'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " ale 语法检测
