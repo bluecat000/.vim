@@ -24,9 +24,9 @@ Plugin 'Auto-Pairs'
 Plugin 'The-NERD-tree'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'carlitux/deoplete-ternjs'
-Plugin 'itchyny/lightline.vim'
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'itchyny/lightline.vim'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'roxma/nvim-yarp' "vim required
 " Plugin 'roxma/vim-hug-neovim-rpc'
@@ -110,21 +110,23 @@ autocmd FileType html syntax sync fromstart
 let g:html_exclude_tags = ['html', 'style', 'script'] "html5插件：不需要换行的标签
 
 "PLUGINS
+
 "airline
-" set laststatus=2  
-" set lazyredraw  
-" let g:airline#extensions#tabline#enabled = 1 "buffers
+set laststatus=2  
+set lazyredraw  
+let g:airline#extensions#tabline#enabled = 1 "buffers
 " let g:airline_theme="base16_atelierdune" 
-" let g:airline_powerline_fonts=1  
-" if !exists('g:airline_symbols')  
-  " let g:airline_symbols={}  
-" endif
-" let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_theme="solarized" 
+let g:airline_powerline_fonts=1  
+if !exists('g:airline_symbols')  
+  let g:airline_symbols={}  
+endif
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " lightline
-let g:lightline = {
-      \ 'colorscheme': 'default',
-      \ }
+" let g:lightline = {
+      " \ 'colorscheme': 'default',
+      " \ }
 
 "UltiSnips
 let g:UltiSnipsExpandTrigger       = "<tab>"
