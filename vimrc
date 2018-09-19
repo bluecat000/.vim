@@ -23,13 +23,13 @@ Plugin 'mileszs/ack.vim'
 Plugin 'Auto-Pairs'
 Plugin 'The-NERD-tree'
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp' "vim required
+Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'carlitux/deoplete-ternjs'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'itchyny/lightline.vim'
 " Plugin 'Valloric/YouCompleteMe'
-" Plugin 'roxma/nvim-yarp' "vim required
-" Plugin 'roxma/vim-hug-neovim-rpc'
 " Plugin 'othree/javascript-libraries-syntax.vim'
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'gorodinskiy/vim-coloresque.git'
@@ -101,12 +101,14 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=tern#Complete "tern_for_vim
 autocmd BufRead,BufNewFile *.wxss set filetype=css " 小程序文件
 autocmd BufRead,BufNewFile *.wxml set filetype=html " 小程序文件
-autocmd BufRead,BufNewFile *.vue setlocal filetype=html
-autocmd BufRead,BufNewFile *.html setlocal filetype=html.javascript.css
-" let g:vue_disable_pre_processors=1
-let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
+" autocmd BufRead,BufNewFile *.vue setlocal filetype=html
+" autocmd BufRead,BufNewFile *.html setlocal filetype=html.javascript.css
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
 autocmd FileType vue syntax sync fromstart
 autocmd FileType html syntax sync fromstart
+
+let g:vue_disable_pre_processors=1
+let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
 let g:html_exclude_tags = ['html', 'style', 'script'] "html5插件：不需要换行的标签
 
 "PLUGINS

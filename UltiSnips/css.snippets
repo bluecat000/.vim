@@ -17,6 +17,7 @@ endsnippet
 snippet -f "-webkit"
 -moz-$1;
 endsnippet
+
 snippet bgi
 background-image: ${1:url(${2})};
 endsnippet
@@ -32,49 +33,67 @@ endsnippet
 snippet bgr
 background-repeat: no-repeat;$1
 endsnippet
-snippet bdrd
-border-radius: ${1:0px};
-endsnippet
+
 snippet jc
-justify-content: ${1:value};
+justify-content: $1;
 endsnippet
 snippet jcc
 justify-content: center;$1
 endsnippet
 snippet ai
-align-items: ${1:vlaue};
+align-items: $1;
 endsnippet
 snippet aic
 align-items: center;$1
 endsnippet
-snippet bdr
-box-direction: ${1:column};
+snippet bdrd
+border-radius: $1;
 endsnippet
 snippet dpib
-display: ${1:inline-block};
+display: inline-block;$1
 endsnippet
 snippet dpf
 display: flex;$1
 endsnippet
+snippet dpb
+display: block;$1
+endsnippet
 snippet fs
-font-size: ${1:12px};
+font-size: $1;
 endsnippet
 snippet c
-color: ${1:#fff};
+color: $1;
 endsnippet
-snippet line 
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;$1
+
+snippet fldr
+flex-direction: $1;
 endsnippet
-snippet mline
-display: -webkit-box;
--webkit-box-orient: vertical;
--webkit-line-clamp: 3;
-overflow: hidden;$1
+snippet flw
+flex-wrap: wrap;$1
 endsnippet
-snippet fdr
-flex-direction: ${1:column};$2
+
+snippet acentery
+top: 50%;
+transform: translateY(-50%);
+endsnippet
+snippet acenterx
+left: 50%;
+transform: translateX(-50%);
+endsnippet
+snippet acenter
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+endsnippet
+
+snippet pstr
+position: relative;
+endsnippet
+snippet psta
+position: absolute;
+endsnippet
+snippet pstf
+position: fixed;
 endsnippet
 
 snippet input:custom
@@ -98,16 +117,15 @@ snippet img:select
 -ms-user-select:none;
 user-select:none;
 endsnippet
-snippet acentery
-top: 50%;
-transform: translateY(-50%);
+
+snippet line 
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;$1
 endsnippet
-snippet acenterx
-left: 50%;
-transform: translateX(-50%);
-endsnippet
-snippet acenter
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
+snippet mline
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
+overflow: hidden;$1
 endsnippet
