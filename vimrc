@@ -70,8 +70,8 @@ set fileencodings=utf-8,gbk
 set backspace=indent,eol,start
 set wildignore+=node_modules/*,.git/* " 设置vimgrep搜索忽略项
 "set guicursor=n-v-c:ver1,i-ci:ver1 "改变游标样式
-set cursorcolumn
-set cursorline
+" set cursorcolumn
+" set cursorline
 set hidden "切换文件时保存撤销步骤
 set vb t_vb= "关闭声音
 set noswapfile "不生成swp文件
@@ -84,13 +84,16 @@ nnoremap <space> za             " 用空格来切换折叠状态
 set foldlevel=99 "折叠数
 set iskeyword=@,48-57,_,192-255,-,#,^. " 单词位移时候指定是否为单词
 set timeoutlen=1000 ttimeoutlen=0 " 间隔 调整iterm2很慢的问题
+set nocursorcolumn
+set nocursorline
+set norelativenumber
+syntax sync minlines=37
 
-" set termguicolors
 " python set
-" let g:python_host_skip_check=1
-" let g:python_host_prog = '/usr/local/bin/python'
-" let g:python3_host_skip_check=1
-" let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_skip_check=1
+let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_skip_check=1
+let g:python3_host_prog = '/usr/local/bin/python3'
 set background=dark
 color neosolarized
 
@@ -185,6 +188,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ale_linters = {
       \   'javascript': ['eslint'],
       \   'html': ['eslint'],
+      \   'vue': ['eslint'],
       \}
 nnoremap <leader>aj :ALENext<CR>
 nnoremap <leader>ak :ALEPrevious<CR>
