@@ -9,7 +9,7 @@ Plugin 'emmet.vim'
 Plugin 'othree/html5.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'chemzqm/vim-jsx-improve'
-Plugin 'posva/vim-vue'
+" Plugin 'posva/vim-vue'
 Plugin 'kien/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -23,7 +23,8 @@ Plugin 'mileszs/ack.vim'
 Plugin 'Auto-Pairs'
 Plugin 'The-NERD-tree'
 Plugin 'itchyny/lightline.vim'
-
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'carlitux/deoplete-ternjs'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'Valloric/YouCompleteMe'
@@ -39,12 +40,6 @@ Plugin 'itchyny/lightline.vim'
 " Plugin 'othree/yajs.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-
-if has('nvim')
-  Plugin 'Shougo/deoplete.nvim'
-  Plugin 'carlitux/deoplete-ternjs'
-endif
 
 "常规配置
 " set shortmess=atI "启动不出现提示语
@@ -89,7 +84,6 @@ set iskeyword=@,48-57,_,192-255,-,#,^. " 单词位移时候指定是否为单词
 set timeoutlen=1000 ttimeoutlen=0 " 间隔 调整iterm2很慢的问题
 set nocursorcolumn
 set nocursorline
-set norelativenumber
 syntax sync minlines=37
 set tags=tags
 
@@ -108,8 +102,8 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=tern#Complete "tern_for_vim
 autocmd BufRead,BufNewFile *.wxss set filetype=css " 小程序文件
 autocmd BufRead,BufNewFile *.wxml set filetype=html " 小程序文件
-autocmd BufRead,BufNewFile *.vue setlocal filetype=html
-autocmd BufRead,BufNewFile *.html setlocal filetype=html.javascript.css
+autocmd BufRead,BufNewFile *.vue set filetype=html
+autocmd BufRead,BufNewFile *.html set filetype=html.javascript.css
 " autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
 autocmd FileType vue syntax sync fromstart
 autocmd FileType html syntax sync fromstart
@@ -193,6 +187,10 @@ let g:ale_linters = {
       \   'javascript': ['eslint'],
       \   'html': ['eslint'],
       \   'vue': ['eslint'],
+      \}
+let g:ale_linter_aliases = {
+      \'vue': ['html', 'javascript', 'css'],
+      \'html': ['html', 'javascript', 'css'],
       \}
 nnoremap <leader>aj :ALENext<CR>
 nnoremap <leader>ak :ALEPrevious<CR>
