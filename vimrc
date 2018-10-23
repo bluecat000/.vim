@@ -26,9 +26,9 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp' "vim required
 Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'carlitux/deoplete-ternjs'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'itchyny/lightline.vim'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
+Plugin 'itchyny/lightline.vim'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'othree/javascript-libraries-syntax.vim'
 " Plugin 'pangloss/vim-javascript'
@@ -95,7 +95,7 @@ let g:python_host_skip_check=1
 let g:python_host_prog = '/usr/local/bin/python'
 let g:python3_host_skip_check=1
 let g:python3_host_prog = '/usr/local/bin/python3'
-set background=dark
+set background=light
 color neosolarized
 
 "代码提示
@@ -105,9 +105,9 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=tern#Complete "tern_for_vim
 autocmd BufRead,BufNewFile *.wxss set filetype=css " 小程序文件
 autocmd BufRead,BufNewFile *.wxml set filetype=html " 小程序文件
-" autocmd BufRead,BufNewFile *.vue setlocal filetype=html
+autocmd BufRead,BufNewFile *.vue setlocal filetype=html
 autocmd BufRead,BufNewFile *.html setlocal filetype=html.javascript.css
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
+" autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
 autocmd FileType vue syntax sync fromstart
 autocmd FileType html syntax sync fromstart
 
@@ -118,21 +118,21 @@ let g:html_exclude_tags = ['html', 'style', 'script'] "html5插件：不需要�
 "PLUGINS
 
 "airline
-set laststatus=2  
-set lazyredraw  
-let g:airline#extensions#tabline#enabled = 1 "buffers
-" let g:airline_theme="base16_atelierdune" 
-let g:airline_theme="solarized" 
-let g:airline_powerline_fonts=1  
-if !exists('g:airline_symbols')  
-  let g:airline_symbols={}  
-endif
-let g:airline#extensions#tabline#buffer_nr_show = 1
+" set laststatus=2  
+" set lazyredraw  
+" let g:airline#extensions#tabline#enabled = 1 "buffers
+" " let g:airline_theme="base16_atelierdune" 
+" let g:airline_theme="solarized" 
+" let g:airline_powerline_fonts=1  
+" if !exists('g:airline_symbols')  
+  " let g:airline_symbols={}  
+" endif
+" let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " lightline
-" let g:lightline = {
-      " \ 'colorscheme': 'default',
-      " \ }
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ }
 
 "UltiSnips
 let g:UltiSnipsExpandTrigger       = "<tab>"
