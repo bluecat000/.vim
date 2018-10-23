@@ -88,6 +88,7 @@ set nocursorcolumn
 set nocursorline
 set norelativenumber
 syntax sync minlines=37
+set tags=tags
 
 " python set
 let g:python_host_skip_check=1
@@ -105,12 +106,12 @@ autocmd FileType javascript setlocal omnifunc=tern#Complete "tern_for_vim
 autocmd BufRead,BufNewFile *.wxss set filetype=css " 小程序文件
 autocmd BufRead,BufNewFile *.wxml set filetype=html " 小程序文件
 " autocmd BufRead,BufNewFile *.vue setlocal filetype=html
-" autocmd BufRead,BufNewFile *.html setlocal filetype=html.javascript.css
+autocmd BufRead,BufNewFile *.html setlocal filetype=html.javascript.css
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
 autocmd FileType vue syntax sync fromstart
 autocmd FileType html syntax sync fromstart
 
-let g:vue_disable_pre_processors=1
+" let g:vue_disable_pre_processors=1
 let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
 let g:html_exclude_tags = ['html', 'style', 'script'] "html5插件：不需要换行的标签
 
@@ -225,8 +226,8 @@ let g:deoplete#sources#ternjs#in_literal = 0
 let g:deoplete#sources#ternjs#filetypes = [
       \ 'jsx',
       \ 'javascript.jsx',
-      \ 'vue',
       \ 'typescript',
+      \ 'vue',
       \ 'html'
       \ ]
 
