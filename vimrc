@@ -22,13 +22,10 @@ Plugin 'w0rp/ale'
 Plugin 'mileszs/ack.vim'
 Plugin 'Auto-Pairs'
 Plugin 'The-NERD-tree'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'roxma/nvim-yarp' "vim required
-Plugin 'roxma/vim-hug-neovim-rpc'
-Plugin 'carlitux/deoplete-ternjs'
+Plugin 'itchyny/lightline.vim'
+
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
-Plugin 'itchyny/lightline.vim'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'othree/javascript-libraries-syntax.vim'
 " Plugin 'pangloss/vim-javascript'
@@ -42,6 +39,12 @@ Plugin 'itchyny/lightline.vim'
 " Plugin 'othree/yajs.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+
+if has('nvim')
+  Plugin 'Shougo/deoplete.nvim'
+  Plugin 'carlitux/deoplete-ternjs'
+endif
 
 "常规配置
 " set shortmess=atI "启动不出现提示语
