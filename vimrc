@@ -179,8 +179,9 @@ let g:user_emmet_settings = {
       \}
 
 " ctrlP
-" let g:ctrlp_working_path_mode = 'c'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_working_path_mode = 'ra'
+" let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
 " ale 语法检测
 let g:ale_linters = {
