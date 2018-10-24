@@ -72,6 +72,35 @@ function (designWidth = 750) {
 }
 endsnippet
 
-snippet vconsole
+snippet vconsole:cdn
 <script src="https://cdn.bootcss.com/vConsole/2.5.1/vconsole.min.js"></script>
+endsnippet
+
+snippet vconsole:npm
+import VConsole from 'VConsole'
+const vConsole = new VConsole()
+endsnippet
+
+snippet isweixin
+() => {
+	return /micromessenger/i.test(window.navigator.userAgent.toLowerCase()
+}
+endsnippet
+
+snippet isandroid
+() => {
+	return /android/i.test(window.navigator.userAgent.toLowerCase()
+}
+endsnippet
+
+snippet isios
+() => {
+	return /iphone|ipod/i.test(window.navigator.userAgent.toLowerCase()
+}
+endsnippet
+
+snippet loading:vue
+import Loading from 'vue-loading-spin'
+import 'vue-loading-spin/dist/loading.css'
+Vue.use(Loading)
 endsnippet
