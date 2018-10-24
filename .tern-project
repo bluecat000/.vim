@@ -13,6 +13,9 @@
       "baseURL": "./",
       "paths": {}
     },
-    "node": {}
+    "node": {},
+    "webpack": {
+      "configPath": "./webpack.dev.conf.js"
+    }
   }
 }
