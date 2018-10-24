@@ -103,13 +103,11 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=tern#Complete "tern_for_vim
 autocmd BufRead,BufNewFile *.wxss set filetype=css " 小程序文件
 autocmd BufRead,BufNewFile *.wxml set filetype=html " 小程序文件
-autocmd BufRead,BufNewFile *.vue set filetype=html
-autocmd BufRead,BufNewFile *.html set filetype=html.javascript.css
-" autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
+autocmd BufRead,BufNewFile *.vue set filetype=html.javascript_tern
+autocmd BufRead,BufNewFile *.html set filetype=html.javascript.javascript_tern.css
 autocmd FileType vue syntax sync fromstart
 autocmd FileType html syntax sync fromstart
 
-" let g:vue_disable_pre_processors=1
 let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
 let g:html_exclude_tags = ['html', 'style', 'script'] "html5插件：不需要换行的标签
 
