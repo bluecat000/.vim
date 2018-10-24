@@ -24,6 +24,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'carlitux/deoplete-ternjs'
 Plugin 'tpope/vim-fugitive'
+Plugin 'majutsushi/tagbar'
 " Plugin 'posva/vim-vue'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
@@ -129,6 +130,9 @@ let g:html_exclude_tags = ['html', 'style', 'script'] "html5插件：不需要�
 " lightline
 let g:lightline = {
       \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'absolutepath', 'modified' ] ],
+      \ }
       \ }
 
 "UltiSnips
@@ -201,6 +205,10 @@ nnoremap <leader>ak :ALEPrevious<CR>
 nnoremap <leader>d :TernDef<CR>
 nnoremap <leader>r :TernRefs<CR>
 nnoremap <leader>h :TernDoc<CR>
+
+" tagbar
+nmap <F7> :TagbarToggle<CR>
+let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 
 " gitgutter
