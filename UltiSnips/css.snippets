@@ -19,16 +19,19 @@ snippet -f "-webkit"
 endsnippet
 
 snippet bgi
-background-image: ${1:url(${2})};
+background-image: url($1);
 endsnippet
 snippet bgc
-background-color: ${1:color};
+background-color: $1;
 endsnippet
 snippet bgs
-background-size: ${1:cover} ${2};
+background-size: 100%;$1
+endsnippet
+snippet bgsc
+background-size: cover;
 endsnippet
 snippet bgp
-background-position: ${1:top} ${2:left};
+background-position: top left;$1
 endsnippet
 snippet bgr
 background-repeat: no-repeat;$1
@@ -129,3 +132,8 @@ display: -webkit-box;
 -webkit-line-clamp: 3;
 overflow: hidden;$1
 endsnippet
+snippet touch 
+-webkit-overflow-scrolling:touch; /* body */
+overflow: auto: /* auto */
+endsnippet
+	

@@ -197,7 +197,7 @@ let g:ale_linters = {
       \   'ts': ['tslint'],
       \}
 let g:ale_linter_aliases = {
-      \'vue': ['html', 'javascript', 'css'],
+      \'vue': ['html', 'javascript', 'css', 'typescript', 'ts'],
       \'html': ['html', 'javascript', 'css'],
       \}
 nnoremap <leader>aj :ALENext<CR>
