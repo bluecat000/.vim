@@ -94,8 +94,12 @@ let g:python_host_prog = '/usr/local/bin/python'
 let g:python3_host_skip_check=1
 let g:python3_host_prog = '/usr/local/bin/python3'
 set background=dark
-color neosolarized
+color solarized
 
+autocmd FileType vue syntax sync fromstart
+autocmd FileType html.javascript_tern syntax sync fromstart
+autocmd FileType javascript_tern syntax sync fromstart
+autocmd FileType html syntax sync fromstart
 "代码提示
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -106,8 +110,6 @@ autocmd BufRead,BufNewFile *.wxml set filetype=html " 小程序文件
 autocmd BufRead,BufNewFile *.vue set filetype=html.javascript_tern
 autocmd BufRead,BufNewFile *.ts set filetype=typescript.javascript_tern
 autocmd BufRead,BufNewFile *.html set filetype=html.javascript.javascript_tern.css
-autocmd FileType vue syntax sync fromstart
-autocmd FileType html syntax sync fromstart
 
 let g:used_javascript_libs = 'jquery,vue,react' "js库高亮
 let g:html_exclude_tags = ['html', 'style', 'script'] "html5插件：不需要换行的标签
