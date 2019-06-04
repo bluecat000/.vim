@@ -51,9 +51,9 @@ set number
 set relativenumber
 syntax on
 syntax enable
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent
@@ -94,7 +94,7 @@ let g:python_host_prog = '/usr/local/bin/python'
 let g:python3_host_skip_check=1
 let g:python3_host_prog = '/usr/local/bin/python3'
 set background=dark
-color solarized
+color desert
 
 autocmd FileType vue syntax sync fromstart
 autocmd FileType html.javascript_tern syntax sync fromstart

@@ -185,3 +185,11 @@ endsnippet
 snippet ssss
 sessionStorage.setItem($1, $2)
 endsnippet
+
+snippet	filereader
+var reader = new FileReader();
+reader.onload = function(e) {
+	qrcode.decode(e.target.result);
+};
+reader.readAsDataURL(${1:file});
+endsnippet
