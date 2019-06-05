@@ -229,6 +229,9 @@ let g:gitgutter_sign_modified_removed = '|'
 " deoplete
 set runtimepath+=~/.vim/bundle/deoplete.nvim/
 set pumheight=5 "补全候选词高度
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+let g:deoplete#sources#ternjs#timeout = 1
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#ternjs#types = 1
 let g:deoplete#sources#ternjs#depths = 1
