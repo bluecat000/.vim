@@ -25,6 +25,7 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'carlitux/deoplete-ternjs'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
+Plugin 'Yggdroot/indentLine'
 " Plugin 'posva/vim-vue'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
@@ -32,7 +33,6 @@ Plugin 'majutsushi/tagbar'
 " Plugin 'othree/javascript-libraries-syntax.vim'
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'gorodinskiy/vim-coloresque.git'
-" Plugin 'Yggdroot/indentLine'
 " Plugin 'php.vim'
 " Plugin 'node.js'
 " Plugin 'suan/vim-instant-markdown'
@@ -96,10 +96,9 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 set background=dark
 color desert
 
-autocmd FileType vue syntax sync fromstart
-autocmd FileType html.javascript_tern syntax sync fromstart
+autocmd FileType html.javascript_tern.javascript.scss syntax sync fromstart
 autocmd FileType javascript_tern syntax sync fromstart
-autocmd FileType html syntax sync fromstart
+autocmd FileType html.javascript.javascript_tern.css syntax sync fromstart
 "代码提示
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -107,7 +106,7 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=tern#Complete "tern_for_vim
 autocmd BufRead,BufNewFile *.wxss set filetype=css " 小程序文件
 autocmd BufRead,BufNewFile *.wxml set filetype=html " 小程序文件
-autocmd BufRead,BufNewFile *.vue set filetype=html.javascript_tern
+autocmd BufRead,BufNewFile *.vue set filetype=html.javascript_tern.javascript.scss
 autocmd BufRead,BufNewFile *.ts set filetype=typescript.javascript_tern
 autocmd BufRead,BufNewFile *.html set filetype=html.javascript.javascript_tern.css
 
@@ -138,6 +137,7 @@ let g:lightline = {
 
 " neosnippet
 " Plugin key-mappings.
+let g:neosnippet#snippets_directory='~/.vim/neosnippet'
 imap <TAB>     <Plug>(neosnippet_expand_or_jump)
 smap <TAB>     <Plug>(neosnippet_expand_or_jump)
 xmap <TAB>     <Plug>(neosnippet_expand_target)

@@ -1,0 +1,155 @@
+snippet -
+options head
+    ${1}: ${2};
+    -webkit-${1}: ${2};
+    -moz-${1}: ${2};
+    -o-${1}: ${2};
+    -ms-${1}: ${2};
+
+snippet -w "-webkit"
+options head
+    -webkit-${1};
+
+snippet bgi
+options head
+    background-image: url(${1});
+
+snippet bgc
+options head
+    background-color: ${1};
+
+snippet bgs
+options head
+    background-size: ${1:100%};
+
+snippet bgsc
+options head
+    background-size: cover;
+
+snippet bgp
+options head
+    background-position: top left;
+
+snippet bgr
+options head
+    background-repeat: no-repeat;
+
+
+snippet jc
+options head
+    justify-content: ${1};
+
+snippet jcc
+options head
+    justify-content: center;
+
+snippet ai
+options head
+    align-items: ${1};
+
+snippet aic
+options head
+    align-items: center;
+
+snippet bdrd
+options head
+    border-radius: ${1};
+
+snippet dpib
+options head
+    display: inline-block;
+
+snippet dpf
+options head
+    display: flex;
+
+snippet dpb
+options head
+    display: block;
+
+snippet fs
+options head
+    font-size: ${1};
+
+snippet c
+options head
+    color: ${1};
+
+
+snippet fldrc
+options head
+    flex-direction: column;
+
+snippet flw
+options head
+    flex-wrap: wrap;
+
+
+snippet acentery
+options head
+    top: 50%;
+    transform: translateY(-50%);
+
+snippet acenterx
+options head
+    left: 50%;
+    transform: translateX(-50%);
+
+snippet acenter
+options head
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+snippet pstr
+    position: relative;
+
+snippet psta
+    position: absolute;
+
+snippet pstf
+    position: fixed;
+
+
+snippet input:custom
+options head
+    outline-color: invert;
+    outline-style: none;
+    outline-width: 0px;
+    border: none;
+    border-style: none;
+    text-shadow: none;
+    -webkit-appearance: none;
+    -webkit-user-select: text;
+    outline-color: transparent;
+    box-shadow: none;
+
+
+snippet img:select
+options head
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+
+
+snippet line 
+options head
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+
+snippet mline
+options head
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+
+snippet touch 
+options head
+    -webkit-overflow-scrolling:touch; /* body */
+    overflow: auto: /* auto */
